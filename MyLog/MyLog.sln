@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLog.Core", "MyLog.Core\MyLog.Core.csproj", "{463875A1-DBDE-4D68-A903-8409DB0B3602}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLog.Droid", "MyLog.Droid\MyLog.Droid.csproj", "{25D38796-33EE-4E22-B31C-2013835E636C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{463875A1-DBDE-4D68-A903-8409DB0B3602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463875A1-DBDE-4D68-A903-8409DB0B3602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463875A1-DBDE-4D68-A903-8409DB0B3602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463875A1-DBDE-4D68-A903-8409DB0B3602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25D38796-33EE-4E22-B31C-2013835E636C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25D38796-33EE-4E22-B31C-2013835E636C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25D38796-33EE-4E22-B31C-2013835E636C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{25D38796-33EE-4E22-B31C-2013835E636C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25D38796-33EE-4E22-B31C-2013835E636C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25D38796-33EE-4E22-B31C-2013835E636C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2D180DA-8C53-4F64-AC09-043163B6A903}
+	EndGlobalSection
+EndGlobal
