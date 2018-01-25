@@ -8,7 +8,7 @@ namespace MyLog.Core
         public override void Initialize()
         {
             base.Initialize();
-            RegisterNavigationServiceAppStart<MainViewModel>();
+            RegisterNavigationServiceAppStart<SlideMenuHostViewModel>();
         }
     }
 }
