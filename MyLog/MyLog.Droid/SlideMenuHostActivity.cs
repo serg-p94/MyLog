@@ -24,6 +24,8 @@ namespace MyLog.Droid
             DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             PageContainer = FindViewById<FrameLayout>(Resource.Id.FragmentContainer);
             SlideMenu = FindViewById<MvxListView>(Resource.Id.navigation);
+
+            SlideMenu.ItemTemplateId = Resource.Layout.item_SlideMenu;
         }
     }
 }
