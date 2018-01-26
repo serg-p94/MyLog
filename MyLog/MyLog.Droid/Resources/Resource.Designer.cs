@@ -2261,6 +2261,9 @@ namespace MyLog.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f07009b
+			public const int FragmentContainer = 2131165339;
+			
 			// aapt resource value: 0x7f07000f
 			public const int MvvmCrossTagId = 2131165199;
 			
@@ -2383,9 +2386,6 @@ namespace MyLog.Droid
 			
 			// aapt resource value: 0x7f070050
 			public const int contentPanel = 2131165264;
-			
-			// aapt resource value: 0x7f07009b
-			public const int content_frame = 2131165339;
 			
 			// aapt resource value: 0x7f070078
 			public const int coordinator = 2131165304;
@@ -2915,10 +2915,10 @@ namespace MyLog.Droid
 			public const int design_text_input_password_icon = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int item_SlideMenu = 2130903081;
+			public const int HomeView = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int Main = 2130903082;
+			public const int item_SlideMenu = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
 			public const int notification_action = 2130903083;

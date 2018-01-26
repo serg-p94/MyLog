@@ -22,7 +22,7 @@ namespace MyLog.Droid
             base.OnCreate(bundle);
 
             DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            PageContainer = FindViewById<FrameLayout>(Resource.Id.content_frame);
+            PageContainer = FindViewById<FrameLayout>(Resource.Id.FragmentContainer);
             SlideMenu = FindViewById<MvxListView>(Resource.Id.navigation);
         }
     }

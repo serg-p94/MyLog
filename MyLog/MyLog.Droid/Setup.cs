@@ -15,19 +15,5 @@ namespace MyLog.Droid
         public Setup(Context applicationContext) : base(applicationContext) { }
 
         protected override IMvxApplication CreateApp() => new App();
-
-        protected override IEnumerable<string> ViewNamespaces => new List<string>(base.ViewNamespaces) {
-            "MyLog.Droid.Custom.Controls"
-        }.Distinct();
-
-        protected override IEnumerable<Assembly> AndroidViewAssemblies =>
-            new List<Assembly>(base.AndroidViewAssemblies) {
-                GetType().Assembly
-            }.Distinct();
-
-        protected override IDictionary<string, string> ViewNamespaceAbbreviations =>
-            new Dictionary<string, string>(base.ViewNamespaceAbbreviations) {
-                {"Controls", "MyLog.Droid.Custom.Controls"}
-            };
     }
 }

@@ -1,5 +1,5 @@
 ﻿using MvvmCross.Core.ViewModels;
-using MyLog.Core.ViewModels;
+using MyLog.Core.ViewModels.Pages;
 
 namespace MyLog.Core
 {
@@ -8,7 +8,7 @@ namespace MyLog.Core
         public override void Initialize()
         {
             base.Initialize();
-            RegisterNavigationServiceAppStart<SlideMenuHostViewModel>();
+            RegisterNavigationServiceAppStart<HomeViewModel>();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MyLog.Core.ViewModels.Pages
 {
-    public class MainViewModel : BasePageViewModel
+    public class HomeViewModel : BasePageViewModel
     {
     }
 }

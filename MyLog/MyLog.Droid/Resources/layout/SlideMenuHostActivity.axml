@@ -7,10 +7,9 @@
   android:layout_height="match_parent">
   <!-- The main content view -->
   <FrameLayout
-    android:id="@+id/content_frame"
+    android:id="@+id/FragmentContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"/>
+    android:layout_height="match_parent" />
   <!-- The navigation drawer -->
   <MvxListView
     android:id="@+id/navigation"
