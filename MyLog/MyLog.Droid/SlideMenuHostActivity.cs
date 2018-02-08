@@ -5,6 +5,7 @@ using Android.Support.V4.Widget;
 using Android.Widget;
 using MvvmCross.Binding.Droid.Views;
 using MyLog.Core.ViewModels;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace MyLog.Droid
 {
@@ -24,6 +25,10 @@ namespace MyLog.Droid
             DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             PageContainer = FindViewById<FrameLayout>(Resource.Id.FragmentContainer);
             SlideMenu = FindViewById<MvxListView>(Resource.Id.navigation);
+
+            var toolbar = (Toolbar) FindViewById(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = "Test";
 
             SlideMenu.ItemTemplateId = Resource.Layout.item_SlideMenu;
         }

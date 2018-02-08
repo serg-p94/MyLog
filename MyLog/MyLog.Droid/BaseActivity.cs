@@ -1,10 +1,10 @@
 ﻿using Android.OS;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Droid.Views;
+using MvvmCross.Droid.Support.V7.AppCompat;
 
 namespace MyLog.Droid
 {
-    public abstract class BaseActivity<TViewModel> : MvxActivity<TViewModel>
+    public abstract class BaseActivity<TViewModel> : MvxAppCompatActivity<TViewModel>
         where TViewModel : MvxViewModel
     {
         protected abstract int LayoutId { get; }

@@ -66,6 +66,15 @@
     <Reference Include="MvvmCross.Droid, Version=5.6.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Core.5.6.3\lib\MonoAndroid\MvvmCross.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Droid.Support.Core.UI, Version=5.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Droid.Support.Core.UI.5.6.3\lib\MonoAndroid70\MvvmCross.Droid.Support.Core.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Droid.Support.Fragment, Version=5.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Droid.Support.Fragment.5.6.3\lib\MonoAndroid70\MvvmCross.Droid.Support.Fragment.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Droid.Support.V7.AppCompat, Version=5.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Droid.Support.V7.AppCompat.5.6.3\lib\MonoAndroid70\MvvmCross.Droid.Support.V7.AppCompat.dll</HintPath>
+    </Reference>
     <Reference Include="MvvmCross.Droid.Support.V7.RecyclerView, Version=5.6.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Droid.Support.V7.RecyclerView.5.6.3\lib\MonoAndroid70\MvvmCross.Droid.Support.V7.RecyclerView.dll</HintPath>
     </Reference>

@@ -5,11 +5,26 @@
   android:id="@+id/drawer_layout"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-  <!-- The main content view -->
-  <FrameLayout
-    android:id="@+id/FragmentContainer"
+
+  <LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="?attr/colorPrimary"
+      android:elevation="4dp"
+      android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+      app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <!-- The main content view -->
+    <FrameLayout
+      android:id="@+id/FragmentContainer"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+  </LinearLayout>
+  
   <!-- The navigation drawer -->
   <MvxListView
     android:id="@+id/navigation"
