@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V4.View;
@@ -21,6 +22,8 @@ namespace MyLog.Droid
         protected FrameLayout FragmentContainer;
         protected MvxListView SlideMenu;
 
+        public event EventHandler IsDrawerOpenChanged;
+
         public bool IsDrawerOpen
         {
             get => DrawerLayout.IsDrawerOpen(GravityCompat.Start);
@@ -35,6 +38,30 @@ namespace MyLog.Droid
                     DrawerLayout.CloseDrawer(GravityCompat.Start);
                 }
             }
+        }
+
+        public override void Subscribe()
+        {
+            base.Subscribe();
+            DrawerLayout.DrawerStateChanged += DrawerStateChangedHandler;
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            DrawerLayout.DrawerStateChanged -= DrawerStateChangedHandler;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    IsDrawerOpen = true;
+                    break;
+            }
+
+            return base.OnOptionsItemSelected(item);
         }
 
         protected override void OnCreate(Bundle bundle)
@@ -52,19 +79,12 @@ namespace MyLog.Droid
 
             SlideMenu.ItemTemplateId = Resource.Layout.item_SlideMenu;
 
-            this.CreateBinding().For(v => v.IsDrawerOpen).To<SlideMenuHostViewModel>(vm => vm.IsMenuOpen).Apply();
+            this.CreateBinding().For(v => v.IsDrawerOpen).To<SlideMenuHostViewModel>(vm => vm.IsMenuOpen).TwoWay().Apply();
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        private void DrawerStateChangedHandler(object s, DrawerLayout.DrawerStateChangedEventArgs e)
         {
-            switch (item.ItemId)
-            {
-                case Android.Resource.Id.Home:
-                    ViewModel.IsMenuOpen = true;
-                    break;
-            }
-
-            return base.OnOptionsItemSelected(item);
+            IsDrawerOpenChanged?.Invoke(s, EventArgs.Empty);
         }
     }
 }
