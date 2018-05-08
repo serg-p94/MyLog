@@ -137,12 +137,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="Views\Components\BaseComponent.cs" />
     <Compile Include="Views\IСonfigurableLifecycleView.cs" />
     <Compile Include="Views\Pages\BasePageFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\SplashScreen.axml">
@@ -155,6 +155,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SecondView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_ComponentLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

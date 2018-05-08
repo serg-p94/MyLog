@@ -4113,6 +4113,9 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f080010
 			public const int MvxBindingTagUnique = 2131230736;
 			
+			// aapt resource value: 0x7f08009e
+			public const int Root = 2131230878;
+			
 			// aapt resource value: 0x7f08009d
 			public const int SlideMenu = 2131230877;
 			
@@ -4347,8 +4350,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f08004a
 			public const int list_item = 2131230794;
 			
-			// aapt resource value: 0x7f08009f
-			public const int masked = 2131230879;
+			// aapt resource value: 0x7f0800a0
+			public const int masked = 2131230880;
 			
 			// aapt resource value: 0x7f080089
 			public const int media_actions = 2131230857;
@@ -4572,8 +4575,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f08000e
 			public const int view_offset_helper = 2131230734;
 			
-			// aapt resource value: 0x7f08009e
-			public const int visible = 2131230878;
+			// aapt resource value: 0x7f08009f
+			public const int visible = 2131230879;
 			
 			// aapt resource value: 0x7f080029
 			public const int withText = 2131230761;
@@ -4828,6 +4831,9 @@ namespace MyLog.Droid
 			
 			// aapt resource value: 0x7f030040
 			public const int support_simple_spinner_dropdown_item = 2130903104;
+			
+			// aapt resource value: 0x7f030041
+			public const int view_ComponentLayout = 2130903105;
 			
 			static Layout()
 			{
