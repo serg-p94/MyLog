@@ -32,6 +32,6 @@
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="#00FF00"
+    android:background="@color/background_light"
     app:MvxBind="ItemsSource MenuItems; ItemClick MenuNavigationCommand;" />
 </android.support.v4.widget.DrawerLayout>
