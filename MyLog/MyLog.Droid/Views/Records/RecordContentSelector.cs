@@ -5,13 +5,13 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.Droid.BindingContext;
 using MyLog.Core.ViewModels.Records;
 
-namespace MyLog.Droid.Views.Components
+namespace MyLog.Droid.Views.Records
 {
-    public class ContentSelector
+    public class RecordContentSelector
     {
         private readonly IMvxBindingContextOwner _bindingContextOwner;
 
-        public ContentSelector(IMvxBindingContextOwner bindingContextOwner)
+        public RecordContentSelector(IMvxBindingContextOwner bindingContextOwner)
         {
             _bindingContextOwner = bindingContextOwner;
         }

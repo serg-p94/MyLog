@@ -4,5 +4,6 @@ namespace MyLog.Core.ViewModels.Abstract
 {
     public abstract class BasePageViewModel : MvxViewModel
     {
+        public virtual string Title { get; }
     }
 }

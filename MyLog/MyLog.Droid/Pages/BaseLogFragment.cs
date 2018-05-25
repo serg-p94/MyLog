@@ -1,17 +1,15 @@
 ﻿using Android.OS;
 using Android.Views;
 using MvvmCross.Binding.Droid.Views;
-using MvvmCross.Droid.Views.Attributes;
-using MyLog.Core.ViewModels;
-using MyLog.Core.ViewModels.Pages;
+using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Views.Pages;
 
 namespace MyLog.Droid.Pages
 {
-    [MvxFragmentPresentation(typeof(SlideMenuHostViewModel), Resource.Id.FragmentContainer, addToBackStack: true)]
-    public class HomeView : BasePageFragment<HomeViewModel>
+    public abstract class BaseLogFragment<TViewModel> : BasePageFragment<TViewModel>
+        where TViewModel : BasePageViewModel
     {
-        public override int LayoutId => Resource.Layout.HomeView;
+        public override int LayoutId => Resource.Layout.LogView;
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {

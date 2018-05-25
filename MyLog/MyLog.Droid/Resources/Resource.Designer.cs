@@ -4821,13 +4821,13 @@ namespace MyLog.Droid
 			public const int design_text_input_password_icon = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int HomeView = 2130903081;
+			public const int item_Record = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int item_Record = 2130903082;
+			public const int item_SlideMenu = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int item_SlideMenu = 2130903083;
+			public const int LogView = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
 			public const int notification_action = 2130903084;
@@ -4899,7 +4899,7 @@ namespace MyLog.Droid
 			public const int support_simple_spinner_dropdown_item = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int view_ComponentLayout = 2130903107;
+			public const int view_RecordCard = 2130903107;
 			
 			static Layout()
 			{

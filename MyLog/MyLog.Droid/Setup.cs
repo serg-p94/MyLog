@@ -4,7 +4,7 @@ using Android.Content;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Platform;
 using MyLog.Core;
-using MyLog.Droid.Views.Components;
+using MyLog.Droid.Views.Records;
 
 namespace MyLog.Droid
 {
@@ -16,7 +16,7 @@ namespace MyLog.Droid
 
         protected override IEnumerable<string> ViewNamespaces =>
             base.ViewNamespaces.Concat(new[] {
-                typeof(BaseComponent).Namespace
+                typeof(RecordCardView).Namespace
             });
 
         protected override IDictionary<string, string> ViewNamespaceAbbreviations
@@ -24,7 +24,7 @@ namespace MyLog.Droid
             get
             {
                 var abbrs = base.ViewNamespaceAbbreviations;
-                abbrs["components"] = typeof(BaseComponent).Namespace;
+                abbrs["records"] = typeof(RecordCardView).Namespace;
                 return abbrs;
             }
         } 
