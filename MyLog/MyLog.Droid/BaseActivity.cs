@@ -1,5 +1,4 @@
 ﻿using Android.OS;
-using Android.Support.V7.Widget;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MyLog.Droid.Views;

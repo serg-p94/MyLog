@@ -11,5 +11,7 @@ namespace MyLog.Core.ViewModels.Components
             get => _date;
             set => SetProperty(ref _date, value);
         }
+
+        public string DateText => Date.ToString();
     }
 }

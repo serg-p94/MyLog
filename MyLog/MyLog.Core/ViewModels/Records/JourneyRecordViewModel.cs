@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MyLog.Core.ViewModels.Components;
 
 namespace MyLog.Core.ViewModels.Records
@@ -7,6 +8,7 @@ namespace MyLog.Core.ViewModels.Records
     public class JourneyRecordViewModel : BaseRecordViewModel
     {
         private string _title = "Title";
+        private DateComponentViewModel _dateComponent = new DateComponentViewModel { Date = DateTime.Now };
 
         public string Title
         {
@@ -14,11 +16,18 @@ namespace MyLog.Core.ViewModels.Records
             set => SetProperty(ref _title, value);
         }
 
+        public DateComponentViewModel DateComponent
+        {
+            get => _dateComponent;
+            set => SetProperty(ref _dateComponent, value);
+        }
+
         public override IList<BaseComponentViewModel> Components { get; } = new List<BaseComponentViewModel> {
-            new TextComponentViewModel { Label = "Location Name", Text = "Text" },
-            new TextComponentViewModel { Label = "Comment", Text = "Text" },
-            new DateComponentViewModel { Date = DateTime.Now },
+            new TextComponentViewModel { Label = "Location Name", Value = "Minsk, Chapaeva" },
+            new TextComponentViewModel { Label = "Comment", Value = "This is a test comment" },
             new LocationComponentViewModel()
         };
+
+        public IList<BaseComponentViewModel> CardComponents => Components.Where(c => c is ILabeledValue).ToList();
     }
 }

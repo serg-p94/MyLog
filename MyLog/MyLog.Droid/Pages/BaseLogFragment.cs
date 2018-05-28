@@ -1,7 +1,4 @@
-﻿using Android.OS;
-using Android.Views;
-using MvvmCross.Binding.Droid.Views;
-using MyLog.Core.ViewModels.Abstract;
+﻿using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Views.Pages;
 
 namespace MyLog.Droid.Pages

@@ -1,10 +1,9 @@
 ﻿namespace MyLog.Core.ViewModels.Components
 {
-    // TODOL Create an interface to render it in card
-    public class TextComponentViewModel : BaseComponentViewModel
+    public class TextComponentViewModel : BaseComponentViewModel , ILabeledValue
     {
         private string _label;
-        private string _text;
+        private string _value;
 
         public string Label
         {
@@ -12,10 +11,10 @@
             set => SetProperty(ref _label, value);
         }
 
-        public string Text
+        public string Value
         {
-            get => _text;
-            set => SetProperty(ref _text, value);
+            get => _value;
+            set => SetProperty(ref _value, value);
         }
     }
 }

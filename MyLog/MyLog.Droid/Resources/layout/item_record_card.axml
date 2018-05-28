@@ -1,8 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<records.RecordCardView
+<android.support.v7.widget.CardView
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/Container"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  app:MvxBind="DataContext .;"/>
+  android:layout_marginLeft="20dp"
+  android:layout_marginRight="20dp"
+  android:layout_marginTop="10dp"
+  android:layout_marginBottom="10dp"
+  android:minHeight="100dp"
+  app:cardBackgroundColor="@color/background_light"
+  app:cardElevation="5dp"
+  app:cardCornerRadius="10dp"
+  android:clickable="true">
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="5dp"
+      android:background="#AAA"
+      app:MvxBind="Text Title;" />
+    <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="10dp">
+      <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/default_image" />
+      <MvxLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:MvxItemTemplate="@layout/item_labeled_value"
+        app:MvxBind="ItemsSource CardComponents;" />
+    </LinearLayout>
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="right"
+      app:MvxBind="Text DateComponent.DateText;" />
+  </LinearLayout>
+</android.support.v7.widget.CardView>
