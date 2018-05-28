@@ -9,12 +9,25 @@
   <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
     android:padding="5dp"
     android:background="#AAA"
     app:MvxBind="Text Title;" />
-  <TextView
+  <LinearLayout
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:MvxBind="Text Date;" />
+    android:layout_height="match_parent"
+    android:padding="10dp">
+    <ImageView
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginRight="10dp"
+      android:src="@drawable/default_image" />
+    <MvxLinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#220000AA"
+      app:MvxItemTemplate="@layout/item_labeled_value"
+      app:MvxBind="ItemsSource Components;" />
+  </LinearLayout>
 </LinearLayout>

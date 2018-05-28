@@ -77,8 +77,6 @@ namespace MyLog.Droid
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
 
-            SlideMenu.ItemTemplateId = Resource.Layout.item_SlideMenu;
-
             this.CreateBinding().For(v => v.IsDrawerOpen).To<SlideMenuHostViewModel>(vm => vm.IsMenuOpen).TwoWay().Apply();
         }
 

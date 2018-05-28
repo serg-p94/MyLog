@@ -15,8 +15,8 @@ namespace MyLog.Core.ViewModels.Records
         }
 
         public override IList<BaseComponentViewModel> Components { get; } = new List<BaseComponentViewModel> {
-            new TextComponentViewModel { Text = "Location Name" },
-            new TextComponentViewModel { Text = "Comment" },
+            new TextComponentViewModel { Label = "Location Name", Text = "Text" },
+            new TextComponentViewModel { Label = "Comment", Text = "Text" },
             new DateComponentViewModel { Date = DateTime.Now },
             new LocationComponentViewModel()
         };
