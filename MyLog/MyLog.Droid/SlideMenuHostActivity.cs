@@ -40,18 +40,6 @@ namespace MyLog.Droid
             }
         }
 
-        public override void Subscribe()
-        {
-            base.Subscribe();
-            DrawerLayout.DrawerStateChanged += DrawerStateChangedHandler;
-        }
-
-        protected override void OnStop()
-        {
-            base.OnStop();
-            DrawerLayout.DrawerStateChanged -= DrawerStateChangedHandler;
-        }
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -72,12 +60,24 @@ namespace MyLog.Droid
             FragmentContainer = FindViewById<FrameLayout>(Resource.Id.FragmentContainer);
             SlideMenu = FindViewById<MvxListView>(Resource.Id.SlideMenu);
 
-            var toolbar = (Toolbar) FindViewById(Resource.Id.Toolbar);
+            var toolbar = (Toolbar)FindViewById(Resource.Id.Toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
 
             this.CreateBinding().For(v => v.IsDrawerOpen).To<SlideMenuHostViewModel>(vm => vm.IsMenuOpen).TwoWay().Apply();
+        }
+
+        protected override void Subscribe()
+        {
+            base.Subscribe();
+            DrawerLayout.DrawerStateChanged += DrawerStateChangedHandler;
+        }
+
+        protected override void Unsubscribe()
+        {
+            base.Unsubscribe();
+            DrawerLayout.DrawerStateChanged -= DrawerStateChangedHandler;
         }
 
         private void DrawerStateChangedHandler(object s, DrawerLayout.DrawerStateChangedEventArgs e)

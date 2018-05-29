@@ -5,5 +5,11 @@ using MyLog.Core.ViewModels.Pages;
 namespace MyLog.Droid.Pages
 {
     [MvxFragmentPresentation(typeof(SlideMenuHostViewModel), Resource.Id.FragmentContainer, addToBackStack: true)]
-    public class JourneyLogView : BaseLogFragment<JourneyLogViewModel> { }
+    public class JourneyLogView : BaseLogFragment<JourneyLogViewModel>
+    {
+        public JourneyLogView()
+        {
+        }
+
+    }
 }

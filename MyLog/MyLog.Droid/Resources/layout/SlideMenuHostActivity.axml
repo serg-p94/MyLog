@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/DrawerLayout"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/DrawerLayout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true">
+
+  <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+  <LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+      android:id="@+id/Toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="?android:colorPrimary" />
+    <FrameLayout
+      android:id="@+id/FragmentContainer"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1" />
+  </LinearLayout>
+
+  <!-- The navigation drawer -->
+  <MvxListView
+    android:id="@+id/SlideMenu"
+    android:layout_width="300dp"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
-
-    <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/Toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
-        <FrameLayout
-            android:id="@+id/FragmentContainer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <!-- The navigation drawer -->
-    <MvxListView
-        android:id="@+id/SlideMenu"
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/background_light"
-        app:MvxItemTemplate="@layout/item_slide_menu"
-        app:MvxBind="ItemsSource MenuItems; ItemClick MenuNavigationCommand;" />
+    android:layout_gravity="start"
+    android:background="@android:color/white"
+    app:MvxItemTemplate="@layout/item_slide_menu"
+    app:MvxBind="ItemsSource MenuItems; ItemClick MenuNavigationCommand;" />
 </android.support.v4.widget.DrawerLayout>

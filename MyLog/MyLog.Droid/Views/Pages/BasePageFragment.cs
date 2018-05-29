@@ -36,9 +36,25 @@ namespace MyLog.Droid.Views.Pages
             bindingSet.Apply();
         }
 
+        public override void OnStart()
+        {
+            base.OnStart();
+            SubscribeEvents();
+        }
+
+        public override void OnStop()
+        {
+            base.OnStop();
+            UnsubscribeEvents();
+        }
+
         protected virtual void AddBindings(MvxFluentBindingDescriptionSet<BasePageFragment<TViewModel>, TViewModel> bindingSet)
         {
             bindingSet.Bind().For(v => v.Title).To(vm => vm.Title);
         }
+
+        protected virtual void SubscribeEvents() { }
+
+        protected virtual void UnsubscribeEvents() { }
     }
 }

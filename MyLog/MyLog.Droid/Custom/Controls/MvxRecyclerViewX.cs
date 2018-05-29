@@ -14,5 +14,13 @@ namespace MyLog.Droid.Custom.Controls
 
         public MvxRecyclerViewX(Context context, IAttributeSet attrs, int defStyle, IMvxRecyclerAdapter adapter) : base(
             context, attrs, defStyle, adapter) { }
+
+        public event EventHandler<(int dx, int dy)> Scrolled;
+
+        public override void OnScrolled(int dx, int dy)
+        {
+            base.OnScrolled(dx, dy);
+            Scrolled?.Invoke(this, (dx, dy));
+        }
     }
 }

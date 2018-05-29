@@ -3054,44 +3054,44 @@ namespace MyLog.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f08004b
-			public const int abc_background_cache_hint_selector_material_dark = 2131230795;
-			
-			// aapt resource value: 0x7f08004c
-			public const int abc_background_cache_hint_selector_material_light = 2131230796;
-			
-			// aapt resource value: 0x7f08004d
-			public const int abc_btn_colored_borderless_text_material = 2131230797;
-			
 			// aapt resource value: 0x7f08004e
-			public const int abc_btn_colored_text_material = 2131230798;
+			public const int abc_background_cache_hint_selector_material_dark = 2131230798;
 			
 			// aapt resource value: 0x7f08004f
-			public const int abc_color_highlight_material = 2131230799;
+			public const int abc_background_cache_hint_selector_material_light = 2131230799;
 			
 			// aapt resource value: 0x7f080050
-			public const int abc_hint_foreground_material_dark = 2131230800;
+			public const int abc_btn_colored_borderless_text_material = 2131230800;
 			
 			// aapt resource value: 0x7f080051
-			public const int abc_hint_foreground_material_light = 2131230801;
+			public const int abc_btn_colored_text_material = 2131230801;
+			
+			// aapt resource value: 0x7f080052
+			public const int abc_color_highlight_material = 2131230802;
+			
+			// aapt resource value: 0x7f080053
+			public const int abc_hint_foreground_material_dark = 2131230803;
+			
+			// aapt resource value: 0x7f080054
+			public const int abc_hint_foreground_material_light = 2131230804;
 			
 			// aapt resource value: 0x7f080005
 			public const int abc_input_method_navigation_guard = 2131230725;
 			
-			// aapt resource value: 0x7f080052
-			public const int abc_primary_text_disable_only_material_dark = 2131230802;
-			
-			// aapt resource value: 0x7f080053
-			public const int abc_primary_text_disable_only_material_light = 2131230803;
-			
-			// aapt resource value: 0x7f080054
-			public const int abc_primary_text_material_dark = 2131230804;
-			
 			// aapt resource value: 0x7f080055
-			public const int abc_primary_text_material_light = 2131230805;
+			public const int abc_primary_text_disable_only_material_dark = 2131230805;
 			
 			// aapt resource value: 0x7f080056
-			public const int abc_search_url_text = 2131230806;
+			public const int abc_primary_text_disable_only_material_light = 2131230806;
+			
+			// aapt resource value: 0x7f080057
+			public const int abc_primary_text_material_dark = 2131230807;
+			
+			// aapt resource value: 0x7f080058
+			public const int abc_primary_text_material_light = 2131230808;
+			
+			// aapt resource value: 0x7f080059
+			public const int abc_search_url_text = 2131230809;
 			
 			// aapt resource value: 0x7f080006
 			public const int abc_search_url_text_normal = 2131230726;
@@ -3102,32 +3102,32 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f080008
 			public const int abc_search_url_text_selected = 2131230728;
 			
-			// aapt resource value: 0x7f080057
-			public const int abc_secondary_text_material_dark = 2131230807;
-			
-			// aapt resource value: 0x7f080058
-			public const int abc_secondary_text_material_light = 2131230808;
-			
-			// aapt resource value: 0x7f080059
-			public const int abc_tint_btn_checkable = 2131230809;
-			
 			// aapt resource value: 0x7f08005a
-			public const int abc_tint_default = 2131230810;
+			public const int abc_secondary_text_material_dark = 2131230810;
 			
 			// aapt resource value: 0x7f08005b
-			public const int abc_tint_edittext = 2131230811;
+			public const int abc_secondary_text_material_light = 2131230811;
 			
 			// aapt resource value: 0x7f08005c
-			public const int abc_tint_seek_thumb = 2131230812;
+			public const int abc_tint_btn_checkable = 2131230812;
 			
 			// aapt resource value: 0x7f08005d
-			public const int abc_tint_spinner = 2131230813;
+			public const int abc_tint_default = 2131230813;
 			
 			// aapt resource value: 0x7f08005e
-			public const int abc_tint_switch_thumb = 2131230814;
+			public const int abc_tint_edittext = 2131230814;
 			
 			// aapt resource value: 0x7f08005f
-			public const int abc_tint_switch_track = 2131230815;
+			public const int abc_tint_seek_thumb = 2131230815;
+			
+			// aapt resource value: 0x7f080060
+			public const int abc_tint_spinner = 2131230816;
+			
+			// aapt resource value: 0x7f080061
+			public const int abc_tint_switch_thumb = 2131230817;
+			
+			// aapt resource value: 0x7f080062
+			public const int abc_tint_switch_track = 2131230818;
 			
 			// aapt resource value: 0x7f080009
 			public const int accent_material_dark = 2131230729;
@@ -3140,9 +3140,6 @@ namespace MyLog.Droid
 			
 			// aapt resource value: 0x7f08000c
 			public const int background_floating_material_light = 2131230732;
-			
-			// aapt resource value: 0x7f08004a
-			public const int background_light = 2131230794;
 			
 			// aapt resource value: 0x7f08000d
 			public const int background_material_dark = 2131230733;
@@ -3189,8 +3186,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f08003f
 			public const int design_bottom_navigation_shadow_color = 2131230783;
 			
-			// aapt resource value: 0x7f080060
-			public const int design_error = 2131230816;
+			// aapt resource value: 0x7f080063
+			public const int design_error = 2131230819;
 			
 			// aapt resource value: 0x7f080040
 			public const int design_fab_shadow_end_color = 2131230784;
@@ -3222,8 +3219,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f080049
 			public const int design_textinput_error_color_light = 2131230793;
 			
-			// aapt resource value: 0x7f080061
-			public const int design_tint_password_toggle = 2131230817;
+			// aapt resource value: 0x7f080064
+			public const int design_tint_password_toggle = 2131230820;
 			
 			// aapt resource value: 0x7f080017
 			public const int dim_foreground_disabled_material_dark = 2131230743;
@@ -3294,6 +3291,18 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f08002c
 			public const int notification_material_background_media_default_color = 2131230764;
 			
+			// aapt resource value: 0x7f08004a
+			public const int primaryColor = 2131230794;
+			
+			// aapt resource value: 0x7f08004c
+			public const int primaryDarkColor = 2131230796;
+			
+			// aapt resource value: 0x7f08004b
+			public const int primaryLightColor = 2131230795;
+			
+			// aapt resource value: 0x7f08004d
+			public const int primaryTextColor = 2131230797;
+			
 			// aapt resource value: 0x7f08002d
 			public const int primary_dark_material_dark = 2131230765;
 			
@@ -3342,11 +3351,11 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f08003c
 			public const int switch_thumb_disabled_material_light = 2131230780;
 			
-			// aapt resource value: 0x7f080062
-			public const int switch_thumb_material_dark = 2131230818;
+			// aapt resource value: 0x7f080065
+			public const int switch_thumb_material_dark = 2131230821;
 			
-			// aapt resource value: 0x7f080063
-			public const int switch_thumb_material_light = 2131230819;
+			// aapt resource value: 0x7f080066
+			public const int switch_thumb_material_light = 2131230822;
 			
 			// aapt resource value: 0x7f08003d
 			public const int switch_thumb_normal_material_dark = 2131230781;
@@ -4058,26 +4067,26 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02006c
-			public const int avd_hide_password_1 = 2130837612;
-			
 			// aapt resource value: 0x7f02006d
-			public const int avd_hide_password_2 = 2130837613;
+			public const int avd_hide_password_1 = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int avd_hide_password_3 = 2130837614;
+			public const int avd_hide_password_2 = 2130837614;
+			
+			// aapt resource value: 0x7f02006f
+			public const int avd_hide_password_3 = 2130837615;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02006f
-			public const int avd_show_password_1 = 2130837615;
-			
 			// aapt resource value: 0x7f020070
-			public const int avd_show_password_2 = 2130837616;
+			public const int avd_show_password_1 = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int avd_show_password_3 = 2130837617;
+			public const int avd_show_password_2 = 2130837617;
+			
+			// aapt resource value: 0x7f020072
+			public const int avd_show_password_3 = 2130837618;
 			
 			// aapt resource value: 0x7f020055
 			public const int default_image = 2130837589;
@@ -4101,52 +4110,55 @@ namespace MyLog.Droid
 			public const int design_snackbar_background = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_logo = 2130837596;
+			public const int ic_add = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int ic_menu = 2130837597;
+			public const int ic_logo = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int ic_splash_loading = 2130837598;
+			public const int ic_menu = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int navigation_empty_icon = 2130837599;
+			public const int ic_splash_loading = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int notification_action_background = 2130837600;
+			public const int navigation_empty_icon = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int notification_bg = 2130837601;
+			public const int notification_action_background = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int notification_bg_low = 2130837602;
+			public const int notification_bg = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int notification_bg_low_normal = 2130837603;
+			public const int notification_bg_low = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_bg_low_pressed = 2130837604;
+			public const int notification_bg_low_normal = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notification_bg_normal = 2130837605;
+			public const int notification_bg_low_pressed = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_bg_normal_pressed = 2130837606;
+			public const int notification_bg_normal = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_icon_background = 2130837607;
-			
-			// aapt resource value: 0x7f02006a
-			public const int notification_template_icon_bg = 2130837610;
-			
-			// aapt resource value: 0x7f02006b
-			public const int notification_template_icon_low_bg = 2130837611;
+			public const int notification_bg_normal_pressed = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_tile_bg = 2130837608;
+			public const int notification_icon_background = 2130837608;
+			
+			// aapt resource value: 0x7f02006b
+			public const int notification_template_icon_bg = 2130837611;
+			
+			// aapt resource value: 0x7f02006c
+			public const int notification_template_icon_low_bg = 2130837612;
 			
 			// aapt resource value: 0x7f020069
-			public const int notify_panel_notification_icon_bg = 2130837609;
+			public const int notification_tile_bg = 2130837609;
+			
+			// aapt resource value: 0x7f02006a
+			public const int notify_panel_notification_icon_bg = 2130837610;
 			
 			static Drawable()
 			{
@@ -4164,11 +4176,11 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0083
 			public const int Container = 2131361923;
 			
-			// aapt resource value: 0x7f0a009c
-			public const int DrawerLayout = 2131361948;
+			// aapt resource value: 0x7f0a009d
+			public const int DrawerLayout = 2131361949;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int FragmentContainer = 2131361950;
+			// aapt resource value: 0x7f0a009f
+			public const int FragmentContainer = 2131361951;
 			
 			// aapt resource value: 0x7f0a0084
 			public const int List = 2131361924;
@@ -4179,14 +4191,14 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0010
 			public const int MvxBindingTagUnique = 2131361808;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int SlideMenu = 2131361951;
+			// aapt resource value: 0x7f0a00a0
+			public const int SlideMenu = 2131361952;
 			
-			// aapt resource value: 0x7f0a009d
-			public const int Toolbar = 2131361949;
+			// aapt resource value: 0x7f0a009e
+			public const int Toolbar = 2131361950;
 			
-			// aapt resource value: 0x7f0a0088
-			public const int action0 = 2131361928;
+			// aapt resource value: 0x7f0a0089
+			public const int action0 = 2131361929;
 			
 			// aapt resource value: 0x7f0a0066
 			public const int action_bar = 2131361894;
@@ -4209,17 +4221,17 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0043
 			public const int action_bar_title = 2131361859;
 			
-			// aapt resource value: 0x7f0a0085
-			public const int action_container = 2131361925;
+			// aapt resource value: 0x7f0a0086
+			public const int action_container = 2131361926;
 			
 			// aapt resource value: 0x7f0a0067
 			public const int action_context_bar = 2131361895;
 			
-			// aapt resource value: 0x7f0a008c
-			public const int action_divider = 2131361932;
+			// aapt resource value: 0x7f0a008d
+			public const int action_divider = 2131361933;
 			
-			// aapt resource value: 0x7f0a0086
-			public const int action_image = 2131361926;
+			// aapt resource value: 0x7f0a0087
+			public const int action_image = 2131361927;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -4236,11 +4248,11 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0045
 			public const int action_mode_close_button = 2131361861;
 			
-			// aapt resource value: 0x7f0a0087
-			public const int action_text = 2131361927;
+			// aapt resource value: 0x7f0a0088
+			public const int action_text = 2131361928;
 			
-			// aapt resource value: 0x7f0a0095
-			public const int actions = 2131361941;
+			// aapt resource value: 0x7f0a0096
+			public const int actions = 2131361942;
 			
 			// aapt resource value: 0x7f0a0046
 			public const int activity_chooser_view_content = 2131361862;
@@ -4269,8 +4281,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a004d
 			public const int buttonPanel = 2131361869;
 			
-			// aapt resource value: 0x7f0a0089
-			public const int cancel_action = 2131361929;
+			// aapt resource value: 0x7f0a008a
+			public const int cancel_action = 2131361930;
 			
 			// aapt resource value: 0x7f0a0032
 			public const int center = 2131361842;
@@ -4284,8 +4296,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a005d
 			public const int checkbox = 2131361885;
 			
-			// aapt resource value: 0x7f0a0091
-			public const int chronometer = 2131361937;
+			// aapt resource value: 0x7f0a0092
+			public const int chronometer = 2131361938;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int clip_horizontal = 2131361851;
@@ -4341,8 +4353,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0023
 			public const int end = 2131361827;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int end_padder = 2131361947;
+			// aapt resource value: 0x7f0a009c
+			public const int end_padder = 2131361948;
 			
 			// aapt resource value: 0x7f0a002c
 			public const int enterAlways = 2131361836;
@@ -4358,6 +4370,9 @@ namespace MyLog.Droid
 			
 			// aapt resource value: 0x7f0a005c
 			public const int expanded_menu = 2131361884;
+			
+			// aapt resource value: 0x7f0a0085
+			public const int fab = 2131361925;
 			
 			// aapt resource value: 0x7f0a003d
 			public const int fill = 2131361853;
@@ -4380,8 +4395,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a004b
 			public const int icon = 2131361867;
 			
-			// aapt resource value: 0x7f0a0096
-			public const int icon_group = 2131361942;
+			// aapt resource value: 0x7f0a0097
+			public const int icon_group = 2131361943;
 			
 			// aapt resource value: 0x7f0a0027
 			public const int ifRoom = 2131361831;
@@ -4389,8 +4404,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0048
 			public const int image = 2131361864;
 			
-			// aapt resource value: 0x7f0a0092
-			public const int info = 2131361938;
+			// aapt resource value: 0x7f0a0093
+			public const int info = 2131361939;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int item_touch_helper_previous_elevation = 2131361792;
@@ -4401,11 +4416,11 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0036
 			public const int left = 2131361846;
 			
-			// aapt resource value: 0x7f0a0097
-			public const int line1 = 2131361943;
+			// aapt resource value: 0x7f0a0098
+			public const int line1 = 2131361944;
 			
-			// aapt resource value: 0x7f0a0099
-			public const int line3 = 2131361945;
+			// aapt resource value: 0x7f0a009a
+			public const int line3 = 2131361946;
 			
 			// aapt resource value: 0x7f0a0011
 			public const int listMode = 2131361809;
@@ -4413,11 +4428,11 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a004a
 			public const int list_item = 2131361866;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int masked = 2131361953;
+			// aapt resource value: 0x7f0a00a2
+			public const int masked = 2131361954;
 			
-			// aapt resource value: 0x7f0a008b
-			public const int media_actions = 2131361931;
+			// aapt resource value: 0x7f0a008c
+			public const int media_actions = 2131361932;
 			
 			// aapt resource value: 0x7f0a0024
 			public const int middle = 2131361828;
@@ -4440,14 +4455,14 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0012
 			public const int normal = 2131361810;
 			
-			// aapt resource value: 0x7f0a0094
-			public const int notification_background = 2131361940;
+			// aapt resource value: 0x7f0a0095
+			public const int notification_background = 2131361941;
+			
+			// aapt resource value: 0x7f0a008f
+			public const int notification_main_column = 2131361935;
 			
 			// aapt resource value: 0x7f0a008e
-			public const int notification_main_column = 2131361934;
-			
-			// aapt resource value: 0x7f0a008d
-			public const int notification_main_column_container = 2131361933;
+			public const int notification_main_column_container = 2131361934;
 			
 			// aapt resource value: 0x7f0a0039
 			public const int parallax = 2131361849;
@@ -4470,11 +4485,11 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0037
 			public const int right = 2131361847;
 			
-			// aapt resource value: 0x7f0a0093
-			public const int right_icon = 2131361939;
+			// aapt resource value: 0x7f0a0094
+			public const int right_icon = 2131361940;
 			
-			// aapt resource value: 0x7f0a008f
-			public const int right_side = 2131361935;
+			// aapt resource value: 0x7f0a0090
+			public const int right_side = 2131361936;
 			
 			// aapt resource value: 0x7f0a001c
 			public const int screen = 2131361820;
@@ -4569,8 +4584,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0038
 			public const int start = 2131361848;
 			
-			// aapt resource value: 0x7f0a008a
-			public const int status_bar_latest_event_content = 2131361930;
+			// aapt resource value: 0x7f0a008b
+			public const int status_bar_latest_event_content = 2131361931;
 			
 			// aapt resource value: 0x7f0a0060
 			public const int submenuarrow = 2131361888;
@@ -4581,11 +4596,11 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a0013
 			public const int tabMode = 2131361811;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int text = 2131361946;
+			// aapt resource value: 0x7f0a009b
+			public const int text = 2131361947;
 			
-			// aapt resource value: 0x7f0a0098
-			public const int text2 = 2131361944;
+			// aapt resource value: 0x7f0a0099
+			public const int text2 = 2131361945;
 			
 			// aapt resource value: 0x7f0a0054
 			public const int textSpacerNoButtons = 2131361876;
@@ -4602,8 +4617,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a000d
 			public const int textinput_error = 2131361805;
 			
-			// aapt resource value: 0x7f0a0090
-			public const int time = 2131361936;
+			// aapt resource value: 0x7f0a0091
+			public const int time = 2131361937;
 			
 			// aapt resource value: 0x7f0a004c
 			public const int title = 2131361868;
@@ -4638,8 +4653,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0a000e
 			public const int view_offset_helper = 2131361806;
 			
-			// aapt resource value: 0x7f0a00a0
-			public const int visible = 2131361952;
+			// aapt resource value: 0x7f0a00a1
+			public const int visible = 2131361953;
 			
 			// aapt resource value: 0x7f0a0029
 			public const int withText = 2131361833;
