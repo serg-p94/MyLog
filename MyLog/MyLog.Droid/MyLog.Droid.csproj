@@ -142,7 +142,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
-    <Compile Include="Views\Pages\BasePageFragment.cs" />
+    <Compile Include="Pages\BasePageFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

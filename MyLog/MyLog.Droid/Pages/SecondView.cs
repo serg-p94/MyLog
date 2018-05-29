@@ -1,7 +1,6 @@
 ﻿using MvvmCross.Droid.Views.Attributes;
 using MyLog.Core.ViewModels;
 using MyLog.Core.ViewModels.Pages;
-using MyLog.Droid.Views.Pages;
 
 namespace MyLog.Droid.Pages
 {

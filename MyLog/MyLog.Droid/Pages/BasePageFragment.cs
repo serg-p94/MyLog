@@ -5,7 +5,7 @@ using MvvmCross.Binding.Droid.BindingContext;
 using MvvmCross.Droid.Views.Fragments;
 using MyLog.Core.ViewModels.Abstract;
 
-namespace MyLog.Droid.Views.Pages
+namespace MyLog.Droid.Pages
 {
     public abstract class BasePageFragment<TViewModel> : MvxFragment<TViewModel>
         where TViewModel : BasePageViewModel

@@ -3,7 +3,6 @@ using Android.Support.Design.Widget;
 using Android.Views;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Custom.Controls;
-using MyLog.Droid.Views.Pages;
 
 namespace MyLog.Droid.Pages
 {
