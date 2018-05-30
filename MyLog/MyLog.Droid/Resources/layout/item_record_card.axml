@@ -11,7 +11,9 @@
   android:layout_marginTop="10dp"
   android:layout_marginBottom="10dp"
   android:minHeight="100dp"
-  app:cardElevation="5dp"
+  android:foreground="?attr/selectableItemBackground"
+  android:clickable="true"
+  app:cardElevation="1dp"
   app:cardCornerRadius="5dp"
   app:contentPadding="10dp">
   <LinearLayout
@@ -26,20 +28,16 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginRight="10dp"
-        android:src="@drawable/default_image" />
+        app:srcCompat="@drawable/default_image" />
       <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:padding="5dp"
+          style="@style/Text.Normal.Dark"
           app:MvxBind="Text Title;" />
         <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="right"
+          style="@style/Text.Light.Dark"
           app:MvxBind="Text DateComponent.DateText;" />
       </LinearLayout>
     </LinearLayout>

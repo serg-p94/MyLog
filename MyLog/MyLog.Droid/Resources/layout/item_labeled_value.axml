@@ -7,12 +7,10 @@
   android:layout_width="match_parent"
   android:layout_height="wrap_content">
   <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    style="@style/Text.Accent.Dark"
     app:MvxBind="Text Label;" />
   <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    style="@style/Text.Normal.Dark"
     android:layout_marginLeft="10dp"
     app:MvxBind="Text Value;" />
 </LinearLayout>

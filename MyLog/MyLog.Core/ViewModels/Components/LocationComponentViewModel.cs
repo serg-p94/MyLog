@@ -1,7 +1,22 @@
-﻿namespace MyLog.Core.ViewModels.Components
+﻿using MyLog.Core.Models;
+
+namespace MyLog.Core.ViewModels.Components
 {
     public class LocationComponentViewModel : BaseComponentViewModel
     {
-        public string GpsCoordinate { get; set; } = "GPS";
+        private string _name;
+        private GpsCoordinates _gpsCoordinates;
+
+        public string Name
+        {
+            get => _name;
+            set => SetProperty(ref _name, value);
+        }
+
+        public GpsCoordinates GpsCoordinates
+        {
+            get => _gpsCoordinates;
+            set => SetProperty(ref _gpsCoordinates, value);
+        }
     }
 }
