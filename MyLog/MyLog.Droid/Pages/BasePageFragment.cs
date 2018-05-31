@@ -2,15 +2,19 @@
 using Android.Views;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.Droid.BindingContext;
+using MvvmCross.Droid.Views;
 using MvvmCross.Droid.Views.Fragments;
 using MyLog.Core.ViewModels.Abstract;
+using MyLog.Droid.Navigation;
 
 namespace MyLog.Droid.Pages
 {
-    public abstract class BasePageFragment<TViewModel> : MvxFragment<TViewModel>
+    public abstract class BasePageFragment<TViewModel> : MvxFragment<TViewModel>, IPageFragment
         where TViewModel : BasePageViewModel
     {
         public abstract int LayoutId { get; }
+
+        public virtual NavigationType NavigationType => NavigationType.Lateral;
 
         public new SlideMenuHostActivity Activity => (SlideMenuHostActivity) base.Activity;
 
@@ -40,6 +44,7 @@ namespace MyLog.Droid.Pages
         {
             base.OnStart();
             SubscribeEvents();
+            Activity.OnFragmentStart(this);
         }
 
         public override void OnStop()
@@ -56,5 +61,12 @@ namespace MyLog.Droid.Pages
         protected virtual void SubscribeEvents() { }
 
         protected virtual void UnsubscribeEvents() { }
+    }
+
+    public interface IPageFragment : IMvxFragmentView
+    {
+        string Title { get; set; }
+
+        NavigationType NavigationType { get; }
     }
 }

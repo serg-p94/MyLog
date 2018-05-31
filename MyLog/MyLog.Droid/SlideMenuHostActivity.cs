@@ -9,6 +9,8 @@ using Android.Widget;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.Droid.Views;
 using MyLog.Core.ViewModels;
+using MyLog.Droid.Navigation;
+using MyLog.Droid.Pages;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace MyLog.Droid
@@ -16,6 +18,8 @@ namespace MyLog.Droid
     [Activity(Label = "SlideMenuHostActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme")]
     public class SlideMenuHostActivity : BaseActivity<SlideMenuHostViewModel>
     {
+        private NavigationType _navigationType;
+
         protected override int LayoutId => Resource.Layout.SlideMenuHostActivity;
 
         protected DrawerLayout DrawerLayout;
@@ -40,12 +44,34 @@ namespace MyLog.Droid
             }
         }
 
+        public NavigationType NavigationType
+        {
+            get => _navigationType;
+            set
+            {
+                _navigationType = value;
+                UpdateToolbar();
+            }
+        }
+
+        internal void OnFragmentStart(IPageFragment fragment)
+        {
+            NavigationType = fragment.NavigationType;
+        }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
                 case Android.Resource.Id.Home:
-                    IsDrawerOpen = true;
+                    if (NavigationType == NavigationType.Lateral)
+                    {
+                        IsDrawerOpen = true;
+                    }
+                    else if (NavigationType == NavigationType.Forward)
+                    {
+                        OnBackPressed();
+                    }
                     break;
             }
 
@@ -62,8 +88,6 @@ namespace MyLog.Droid
 
             var toolbar = (Toolbar)FindViewById(Resource.Id.Toolbar);
             SetSupportActionBar(toolbar);
-            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
 
             this.CreateBinding().For(v => v.IsDrawerOpen).To<SlideMenuHostViewModel>(vm => vm.IsMenuOpen).TwoWay().Apply();
         }
@@ -83,6 +107,25 @@ namespace MyLog.Droid
         private void DrawerStateChangedHandler(object s, DrawerLayout.DrawerStateChangedEventArgs e)
         {
             IsDrawerOpenChanged?.Invoke(s, EventArgs.Empty);
+        }
+
+        private void UpdateToolbar()
+        {
+            var iconId = 0;
+
+            switch (NavigationType)
+            {
+                case NavigationType.Lateral:
+                    iconId = Resource.Drawable.ic_menu;
+                    break;
+
+                case NavigationType.Forward:
+                    iconId = Resource.Drawable.ic_back_arrow;
+                    break;
+            }
+
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            SupportActionBar.SetHomeAsUpIndicator(iconId);
         }
     }
 }

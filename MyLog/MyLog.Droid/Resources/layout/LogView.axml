@@ -20,5 +20,6 @@
     android:layout_gravity="end|bottom"
     android:src="@drawable/ic_add"
     android:clickable="true"
-    app:elevation="5dp" />
+    app:elevation="5dp"
+    app:MvxBind="Click AddRecordCommand;" />
 </android.support.design.widget.CoordinatorLayout>

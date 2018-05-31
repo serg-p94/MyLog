@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
+using MvvmCross.Core.Navigation;
+using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
 using MvvmCross.Plugins.Messenger;
@@ -41,5 +44,7 @@ namespace MyLog.Core.ViewModels.Pages
                 Title = "Sixth"
             },
         };
+
+        public ICommand AddRecordCommand => new MvxCommand(() => NavigationService.Navigate<AddRecordViewModel>());
     }
 }
