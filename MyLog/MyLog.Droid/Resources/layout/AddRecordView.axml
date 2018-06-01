@@ -7,7 +7,10 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
   <EditText
+    style="@style/Text.Normal.Dark"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:MvxBind="Text RecordModel.Title;" />
+    app:MvxBind="Text RecordModel.Header;" />
+  <TextView
+    style="@style/Text.Normal.Dark"
+    app:MvxBind="Text RecordModel.Date; Click SelectDateCommand;" />
 </LinearLayout>

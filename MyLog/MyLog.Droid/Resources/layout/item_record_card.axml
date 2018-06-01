@@ -16,10 +16,6 @@
   app:cardElevation="1dp"
   app:cardCornerRadius="5dp"
   app:contentPadding="10dp">
-  <LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <LinearLayout
       android:orientation="horizontal"
       android:layout_width="match_parent"
@@ -35,17 +31,10 @@
         android:layout_height="wrap_content">
         <TextView
           style="@style/Text.Normal.Dark"
-          app:MvxBind="Text Title;" />
+          app:MvxBind="Text Header;" />
         <TextView
           style="@style/Text.Light.Dark"
-          app:MvxBind="Text DateComponent.DateText;" />
+          app:MvxBind="Text Date;" />
       </LinearLayout>
     </LinearLayout>
-    <MvxLinearLayout
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:MvxItemTemplate="@layout/item_labeled_value"
-      app:MvxBind="ItemsSource CardComponents;" />
-  </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -7,7 +7,7 @@ using MvvmCross.Droid.Views.Fragments;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Navigation;
 
-namespace MyLog.Droid.Pages
+namespace MyLog.Droid.Views.Pages
 {
     public abstract class BasePageFragment<TViewModel> : MvxFragment<TViewModel>, IPageFragment
         where TViewModel : BasePageViewModel

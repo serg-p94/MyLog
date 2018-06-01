@@ -3,7 +3,7 @@ using MyLog.Core.ViewModels;
 using MyLog.Core.ViewModels.Pages;
 using MyLog.Droid.Navigation;
 
-namespace MyLog.Droid.Pages
+namespace MyLog.Droid.Views.Pages
 {
     [MvxFragmentPresentation(typeof(SlideMenuHostViewModel), Resource.Id.FragmentContainer, addToBackStack: true)]
     public class AddRecordView : BasePageFragment<AddRecordViewModel>

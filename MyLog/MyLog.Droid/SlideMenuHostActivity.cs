@@ -10,7 +10,7 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.Droid.Views;
 using MyLog.Core.ViewModels;
 using MyLog.Droid.Navigation;
-using MyLog.Droid.Pages;
+using MyLog.Droid.Views.Pages;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace MyLog.Droid

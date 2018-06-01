@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
-using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
@@ -26,22 +25,22 @@ namespace MyLog.Core.ViewModels.Pages
 
         public IList<JourneyRecordViewModel> Records { get; } = new List<JourneyRecordViewModel> {
             new JourneyRecordViewModel {
-                Title = "First"
+                Header = "First"
             },
             new JourneyRecordViewModel {
-                Title = "Second"
+                Header = "Second"
             },
             new JourneyRecordViewModel {
-                Title = "Third"
+                Header = "Third"
             },
             new JourneyRecordViewModel {
-                Title = "Fourth"
+                Header = "Fourth"
             },
             new JourneyRecordViewModel {
-                Title = "Fifth"
+                Header = "Fifth"
             },
             new JourneyRecordViewModel {
-                Title = "Sixth"
+                Header = "Sixth"
             },
         };
 

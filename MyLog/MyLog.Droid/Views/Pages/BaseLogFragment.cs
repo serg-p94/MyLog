@@ -4,7 +4,7 @@ using Android.Views;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Custom.Controls;
 
-namespace MyLog.Droid.Pages
+namespace MyLog.Droid.Views.Pages
 {
     public abstract class BaseLogFragment<TViewModel> : BasePageFragment<TViewModel>
         where TViewModel : BasePageViewModel
