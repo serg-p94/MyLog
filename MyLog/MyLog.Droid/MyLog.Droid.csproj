@@ -164,18 +164,20 @@
     <Compile Include="Bootstrap\FusedLocationPluginBootstrap.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Custom\Controls\MvxRecyclerViewX.cs" />
+    <Compile Include="Custom\Converters\CoordinatesToStringConverter.cs" />
     <Compile Include="Navigation\NavigationType.cs" />
     <Compile Include="Views\Dialogs\DatePickerDialogView.cs" />
     <Compile Include="Views\Pages\AddRecordView.cs" />
     <Compile Include="Views\Pages\BaseLogFragment.cs" />
     <Compile Include="Views\Pages\JourneyLogView.cs" />
-    <Compile Include="Views\Pages\SecondView.cs" />
+    <Compile Include="Views\Pages\RoadTrackingView.cs" />
     <Compile Include="SlideMenuHostActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\Pages\BasePageFragment.cs" />
+    <Compile Include="TemplateSelectors\RoadTrackingItemTemplateSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -190,7 +192,7 @@
     <AndroidResource Include="Resources\layout\item_slide_menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\SecondView.axml">
+    <AndroidResource Include="Resources\layout\RoadTrackingView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_record_card.axml">
@@ -200,6 +202,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AddRecordView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_way_point.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_way.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

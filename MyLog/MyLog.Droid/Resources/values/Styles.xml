@@ -19,4 +19,19 @@
   <style name="Text.Accent.Dark" parent="@style/Text.Normal.Dark">
     <item name="android:textStyle">bold</item>
   </style>
+
+  <style name="Card">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginLeft">20dp</item>
+    <item name="android:layout_marginRight">20dp</item>
+    <item name="android:layout_marginTop">10dp</item>
+    <item name="android:layout_marginBottom">10dp</item>
+    <item name="android:minHeight">100dp</item>
+    <item name="android:foreground">?attr/selectableItemBackground</item>
+    <item name="android:clickable">true</item>
+    <item name="cardElevation">1dp</item>
+    <item name="cardCornerRadius">5dp</item>
+    <item name="contentPadding">10dp</item>
+  </style>
 </resources>

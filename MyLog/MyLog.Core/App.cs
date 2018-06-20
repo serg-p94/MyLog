@@ -13,7 +13,7 @@ namespace MyLog.Core
         {
             base.Initialize();
             RegisterServices();
-            RegisterNavigationServiceAppStart<JourneyLogViewModel>();
+            RegisterNavigationServiceAppStart<RoadTrackingViewModel>();
         }
 
         private void RegisterServices()

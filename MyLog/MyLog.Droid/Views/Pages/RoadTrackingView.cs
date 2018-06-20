@@ -5,8 +5,8 @@ using MyLog.Core.ViewModels.Pages;
 namespace MyLog.Droid.Views.Pages
 {
     [MvxFragmentPresentation(typeof(SlideMenuHostViewModel), Resource.Id.FragmentContainer, true)]
-    public class SecondView : BasePageFragment<SecondViewModel>
+    public class RoadTrackingView : BasePageFragment<RoadTrackingViewModel>
     {
-        public override int LayoutId => Resource.Layout.SecondView;
+        public override int LayoutId => Resource.Layout.RoadTrackingView;
     }
 }
