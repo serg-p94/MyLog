@@ -5,7 +5,7 @@ using MyLog.Core.Messenger;
 
 namespace MyLog.Core.Services
 {
-    public class LocationService : ILocationService
+    public class LocationService
     {
         private readonly IMvxLocationWatcher _watcher;
         private readonly IMvxMessenger _messenger;
@@ -16,7 +16,10 @@ namespace MyLog.Core.Services
             _messenger = messenger;
         }
 
-        public void Start() => _watcher.Start(new MvxLocationOptions(), OnLocation, OnError);
+        public void Start() => _watcher.Start(new MvxLocationOptions {
+            Accuracy = MvxLocationAccuracy.Fine,
+            TimeBetweenUpdates = TimeSpan.FromSeconds(1)
+        }, OnLocation, OnError);
 
         public void Stop() => _watcher.Stop();
 
@@ -30,11 +33,5 @@ namespace MyLog.Core.Services
         {
             throw new Exception(error.ToString());
         }
-    }
-
-    public interface ILocationService
-    {
-        void Start();
-        void Stop();
     }
 }
