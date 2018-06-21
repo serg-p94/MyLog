@@ -5,36 +5,71 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   style="@style/Card">
   <LinearLayout
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <ImageView
-      android:layout_width="50dp"
-      android:layout_height="50dp"
-      android:layout_marginRight="5dp"
-      android:layout_gravity="top"
-      android:src="@drawable/default_image" />
+    <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="top"
+        android:src="@drawable/default_image" />
+      <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+          style="@style/Text.Accent.Dark"
+          app:MvxBind="Text To.Name;" />
+        <TextView
+          style="@style/Text.Light.Dark"
+          app:MvxBind="Text From.Name;" />
+      </LinearLayout>
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@drawable/ic_expand_more"
+        app:MvxBind="Click DetailedModeCommand;" />
+    </LinearLayout>
     <LinearLayout
       android:orientation="vertical"
-      android:layout_width="0dp"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_weight="1">
-      <TextView
+      app:MvxBind="Visibility Visibility(IsDetailedMode);">
+      <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Text.Accent.Dark"
-        app:MvxBind="Text To.Name;" />
-      <TextView
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/grayLight" />
+
+      <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Text.Light.Dark"
-        app:MvxBind="Text From.Name;" />
+        android:layout_height="wrap_content">
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_gravity="center"
+          android:paddingLeft="5dp"
+          android:paddingRight="10dp"
+          android:src="@drawable/ic_clock" />
+        <TextView
+          style="@style/Text.Normal.Dark"
+          app:MvxBind="Text TimeString(StartTime) + ' - ' + TimeString(FinishTime);" />
+        <TextView
+          style="@style/Text.Light.Dark"
+          android:layout_marginLeft="10dp"
+          app:MvxBind="Text TimeString(Duration);" />
+      </LinearLayout>
     </LinearLayout>
-    <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:layout_gravity="center"
-      android:src="@drawable/ic_expand_more" />
   </LinearLayout>
 </android.support.v7.widget.CardView>

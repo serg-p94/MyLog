@@ -23,17 +23,17 @@ namespace MyLog.Core.ViewModels.Pages
         };
 
         public IList<WayItemViewModel> RoadItems { get; } = new List<WayItemViewModel> {
-            new WayItemViewModel(){Distance = 123.45f, DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, AverageSpeed = 74.5f,
+            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
                 From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, AverageSpeed = 74.5f,
+            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
                 From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, AverageSpeed = 74.5f,
+            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
                 From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, AverageSpeed = 74.5f,
+            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
                 From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, AverageSpeed = 74.5f,
+            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
                 From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, AverageSpeed = 74.5f,
+            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
                 From = From, To = To},
 
         };
