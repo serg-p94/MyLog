@@ -1,15 +1,21 @@
 ﻿using System;
+using MvvmCross.Core.ViewModels;
+using MyLog.Core.Models.RoadTracking;
 
 namespace MyLog.Core.ViewModels.RoadTracking
 {
-    public class WayItemViewModel : BaseItemViewModel
+    public class WayItemViewModel : MvxNotifyPropertyChanged
     {
-        public DateTime StartTime { get; set; }
+        public Waypoint From { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public Waypoint To { get; set; }
+
+        public DateTime DepartureTime { get; set; }
+
+        public DateTime ArrivalTime { get; set; }
 
         public float Distance { get; set; }
 
-        public TimeSpan Duration { get; set; }
+        public float AverageSpeed { get; set; }
     }
 }

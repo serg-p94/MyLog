@@ -7,11 +7,6 @@ namespace MyLog.Droid.Custom.Converters
 {
     public class CoordinatesToStringConverter : MvxValueConverter<MvxCoordinates, string>
     {
-        public CoordinatesToStringConverter()
-        {
-            
-        }
-
         protected override string Convert(MvxCoordinates value, Type targetType, object parameter,
             CultureInfo culture) => $"{value.Latitude:F6}, {value.Longitude:F6}";
     }
