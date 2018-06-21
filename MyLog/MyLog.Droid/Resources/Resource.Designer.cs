@@ -4329,13 +4329,13 @@ namespace MyLog.Droid
 			public const int ic_expand_more = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int ic_hourglass = 2130837622;
+			public const int ic_logo = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int ic_logo = 2130837623;
+			public const int ic_menu = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int ic_menu = 2130837624;
+			public const int ic_sofa = 2130837624;
 			
 			// aapt resource value: 0x7f020079
 			public const int ic_splash_loading = 2130837625;

@@ -51,6 +51,7 @@
         android:layout_marginBottom="5dp"
         android:background="@color/grayLight" />
 
+      <!--Time-->
       <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -69,6 +70,37 @@
           style="@style/Text.Light.Dark"
           android:layout_marginLeft="10dp"
           app:MvxBind="Text TimeString(Duration);" />
+      </LinearLayout>
+
+      <!--Rest time-->
+      <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_gravity="center"
+          android:paddingLeft="5dp"
+          android:paddingRight="10dp"
+          android:src="@drawable/ic_sofa" />
+        <TextView
+          style="@style/Text.Normal.Dark"
+          app:MvxBind="Text TimeString(RestTime);" />
+      </LinearLayout>
+
+      <!--Distance-->
+      <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+          style="@style/Text.Normal.Dark"
+          app:MvxBind="Text DistanceString;" />
+        <TextView
+          style="@style/Text.Light.Dark"
+          android:layout_marginLeft="10dp"
+          app:MvxBind="Text AverageSpeedString;" />
       </LinearLayout>
     </LinearLayout>
   </LinearLayout>

@@ -18,9 +18,15 @@ namespace MyLog.Core.ViewModels.RoadTracking
 
         public TimeSpan Duration => FinishTime - StartTime;
 
+        public TimeSpan RestTime { get; set; }
+
         public float Distance { get; set; }
 
+        public string DistanceString => $"{Distance} км";
+
         public float AverageSpeed { get; set; }
+
+        public string AverageSpeedString => $"{AverageSpeed} км/ч";
 
         public bool  IsDetailedMode
         {
