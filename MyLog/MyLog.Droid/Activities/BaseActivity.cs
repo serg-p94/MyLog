@@ -2,7 +2,7 @@
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Support.V7.AppCompat;
 
-namespace MyLog.Droid
+namespace MyLog.Droid.Activities
 {
     public abstract class BaseActivity<TViewModel> : MvxAppCompatActivity<TViewModel> where TViewModel : MvxViewModel
     {

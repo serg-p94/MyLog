@@ -5,6 +5,7 @@ using MvvmCross.Binding.Droid.BindingContext;
 using MvvmCross.Droid.Views;
 using MvvmCross.Droid.Views.Fragments;
 using MyLog.Core.ViewModels.Abstract;
+using MyLog.Droid.Activities;
 using MyLog.Droid.Navigation;
 
 namespace MyLog.Droid.Views.Pages
