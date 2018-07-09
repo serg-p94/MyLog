@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using CsvHelper;
+using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
 using MyLog.Core.Csv.Converters;
 using MyLog.Core.Models.RoadTracking;
+using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Core.ViewModels.RoadTracking;
 
@@ -43,9 +46,32 @@ namespace MyLog.Core.ViewModels.Pages
 
         };
 
-        public RoadTrackingViewModel()
+        public override void Start()
         {
-            using (var stringReader = new StringReader(RoadDataRaw))
+            base.Start();
+
+            
+        }
+
+        public override void ViewCreated()
+        {
+            base.ViewCreated();
+
+            Task.Run(async () => await Populate());
+        }
+
+        public override void ViewAppeared()
+        {
+            base.ViewAppeared();
+
+            
+        }
+
+        protected async Task Populate()
+        {
+            var csvData = await Mvx.Resolve<IFileInputService>().ImportTextAsync();
+
+            using (var stringReader = new StringReader(csvData))
             using (var csvReader = new CsvReader(stringReader))
             {
                 try

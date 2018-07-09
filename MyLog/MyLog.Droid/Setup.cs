@@ -2,7 +2,10 @@
 using Android.Content;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Platform;
+using MvvmCross.Platform;
 using MyLog.Core;
+using MyLog.Core.Services;
+using MyLog.Droid.Services;
 
 namespace MyLog.Droid
 {
@@ -10,6 +13,12 @@ namespace MyLog.Droid
     {
         public Setup(Context applicationContext) : base(applicationContext)
         {
+        }
+
+        protected override void InitializePlatformServices()
+        {
+            base.InitializePlatformServices();
+            Mvx.RegisterSingleton((IFileInputService) new FileInputService());
         }
 
         protected override IMvxApplication CreateApp() => new App();

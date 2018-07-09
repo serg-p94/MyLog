@@ -16,7 +16,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 namespace MyLog.Droid.Activities
 {
     [Activity(Label = "SlideMenuHostActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme")]
-    public class SlideMenuHostActivity : GoogleApiActivity<SlideMenuHostViewModel>
+    public class SlideMenuHostActivity : BaseActivity<SlideMenuHostViewModel>
     {
         private NavigationType _navigationType;
 
