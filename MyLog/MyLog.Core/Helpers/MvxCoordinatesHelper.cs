@@ -19,5 +19,8 @@ namespace MyLog.Core.Helpers
                 Longitude = double.Parse(parts[1])
             };
         }
+
+        public static bool IsEqual(this MvxCoordinates c1, MvxCoordinates c2) =>
+            c1.Latitude == c2.Latitude && c1.Longitude == c2.Longitude;
     }
 }

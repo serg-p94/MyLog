@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Android.Content;
 using MvvmCross.Droid.Support.V7.AppCompat;
-using MvvmCross.Droid.Views;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Core;
 using MvvmCross.Platform.Droid.Platform;

@@ -12,9 +12,9 @@ namespace MyLog.Core.ViewModels.RoadTracking
 
         public Waypoint To { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public TimeSpan StartTime { get; set; }
 
-        public DateTime FinishTime { get; set; }
+        public TimeSpan FinishTime { get; set; }
 
         public TimeSpan Duration => FinishTime - StartTime;
 

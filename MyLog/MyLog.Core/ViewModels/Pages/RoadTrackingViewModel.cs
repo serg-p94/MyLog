@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
-using MvvmCross.Platform;
+using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Location;
 using MyLog.Core.Csv.Converters;
+using MyLog.Core.Extensions;
 using MyLog.Core.Models.RoadTracking;
-using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Core.ViewModels.RoadTracking;
 
@@ -18,66 +17,50 @@ namespace MyLog.Core.ViewModels.Pages
     {
         public override string Title { get; } = "Road Tracking";
 
-        private static Waypoint From => new Waypoint {
-            Name = "From point",
-            Coordinates = new MvxCoordinates()
-        };
-
-        private static Waypoint To => new Waypoint
-        {
-            Name = "To point",
-            Coordinates = new MvxCoordinates()
-        };
-
-        public IList<WayItemViewModel> RoadItems { get; } = new List<WayItemViewModel> {
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, RestTime = TimeSpan.FromMinutes(15),
-                AverageSpeed = 74.5f,
-                From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, RestTime = TimeSpan.FromMinutes(30),
-                AverageSpeed = 74.5f, From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, RestTime = TimeSpan.FromMinutes(90),
-                AverageSpeed = 74.5f, From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
-                From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
-                From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
-                From = From, To = To},
-
-        };
-
-        public override void Start()
-        {
-            base.Start();
-
-            
-        }
+        public MvxObservableCollection<WayItemViewModel> RoadItems { get; } =
+            new MvxObservableCollection<WayItemViewModel>();
 
         public override void ViewCreated()
         {
             base.ViewCreated();
-
             Task.Run(async () => await Populate());
-        }
-
-        public override void ViewAppeared()
-        {
-            base.ViewAppeared();
-
-            
         }
 
         protected async Task Populate()
         {
-            var csvData = await Mvx.Resolve<IFileInputService>().ImportTextAsync();
+            var waypointsData = WaypointsDataRaw;//await Mvx.Resolve<IFileInputService>().ImportTextAsync();
 
-            using (var stringReader = new StringReader(csvData))
+            using (var stringReader = new StringReader(waypointsData))
             using (var csvReader = new CsvReader(stringReader))
             {
                 try
                 {
                     csvReader.Configuration.TypeConverterCache.AddConverter<MvxCoordinates>(new MvxCoordinatesConverter());
-                    var items = csvReader.GetRecords<Waypoint>().ToList();
+                    var waypoints = csvReader.GetRecords<Waypoint>().ToList();
+                    CoordinatesToWaypointConverter.AvailableWaypoints.UnionWith(waypoints);
+                }
+                catch (Exception e)
+                {
+                }
+            }
+
+            var waysData = WaysDataRaw;//await Mvx.Resolve<IFileInputService>().ImportTextAsync();
+
+            using (var stringReader = new StringReader(waysData))
+            using (var csvReader = new CsvReader(stringReader))
+            {
+                try
+                {
+                    csvReader.Configuration.TypeConverterCache.AddConverter<Waypoint>(new CoordinatesToWaypointConverter());
+                    var ways = csvReader.GetRecords<Way>().ToList();
+                    ways.Select(w => new WayItemViewModel {
+                        StartTime = w.StartTime,
+                        From = w.From,
+                        To = w.To,
+                        Distance = w.Distance,
+                        FinishTime = w.FinishTime,
+                        RestTime = w.PauseTime
+                    }).ForEach(RoadItems.Add);
                 }
                 catch (Exception e)
                 {
@@ -85,7 +68,7 @@ namespace MyLog.Core.ViewModels.Pages
             }
         }
 
-        private const string RoadDataRaw = @"Название,Координаты
+        private const string WaypointsDataRaw = @"Название,Координаты
 Минск,""53.835505, 27.609153""
 ""АЗС, Ивацевичи"",""52.694758, 25.352463""
 ""АЗС, Домачево"",""51.789418, 23.654755""
@@ -94,5 +77,14 @@ namespace MyLog.Core.ViewModels.Pages
 ""TESCO, Жешув"",""50.018610, 22.012777""
 ""АЗС ORLEN, Дукля"",""49.565610, 21.691450""
 Bajusz Vendégház,""48.521228, 21.252782""";
+
+        private const string WaysDataRaw = @"Откуда,Куда,Расстояние,Выезд,Прибытие,Остановка
+""53.835505, 27.609153"",""52.694758, 25.352463"",211,5:00,7:15,0:30
+""52.694758, 25.352463"",""51.789418, 23.654755"",172,7:45,10:00,0:30
+""51.789418, 23.654755"",""51.765549, 23.592854"",7,10:30,10:40,1:00
+""51.765549, 23.592854"",""50.929217, 22.249868"",170,11:40,14:10,0:15
+""50.929217, 22.249868"",""50.018610, 22.012777"",124,14:25,16:25,0:30
+""50.018610, 22.012777"",""49.565610, 21.691450"",75,16:55,18:25,0:15
+""49.565610, 21.691450"",""48.521228, 21.252782"",150,18:40,21:10,00:00";
     }
 }
