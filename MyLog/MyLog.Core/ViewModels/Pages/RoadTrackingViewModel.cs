@@ -20,13 +20,9 @@ namespace MyLog.Core.ViewModels.Pages
         public MvxObservableCollection<WayItemViewModel> RoadItems { get; } =
             new MvxObservableCollection<WayItemViewModel>();
 
-        public override void ViewCreated()
-        {
-            base.ViewCreated();
-            Task.Run(async () => await Populate());
-        }
+        public IMvxCommand ImportCommand => new MvxAsyncCommand(ImportAsync);
 
-        protected async Task Populate()
+        protected async Task ImportAsync()
         {
             var waypointsData = WaypointsDataRaw;//await Mvx.Resolve<IFileInputService>().ImportTextAsync();
 

@@ -181,6 +181,7 @@
     <Compile Include="Navigation\NavigationType.cs" />
     <Compile Include="Services\FileInputService.cs" />
     <Compile Include="Views\Dialogs\DatePickerDialogView.cs" />
+    <Compile Include="Views\Models\OptionItem.cs" />
     <Compile Include="Views\Pages\AddRecordView.cs" />
     <Compile Include="Views\Pages\BaseLogFragment.cs" />
     <Compile Include="Views\Pages\JourneyLogView.cs" />

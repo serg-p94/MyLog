@@ -7,6 +7,7 @@ using MvvmCross.Droid.Views.Fragments;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Activities;
 using MyLog.Droid.Navigation;
+using MyLog.Droid.Views.Models;
 
 namespace MyLog.Droid.Views.Pages
 {
@@ -16,6 +17,8 @@ namespace MyLog.Droid.Views.Pages
         public abstract int LayoutId { get; }
 
         public virtual NavigationType NavigationType => NavigationType.Lateral;
+
+        public MenuOption[] MenuOptions { get; set; } = new MenuOption[0];
 
         public new SlideMenuHostActivity Activity => (SlideMenuHostActivity) base.Activity;
 
@@ -28,7 +31,6 @@ namespace MyLog.Droid.Views.Pages
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var ignored = base.OnCreateView(inflater, container, savedInstanceState);
-
             return this.BindingInflate(LayoutId, null);
         }
 
@@ -69,5 +71,7 @@ namespace MyLog.Droid.Views.Pages
         string Title { get; set; }
 
         NavigationType NavigationType { get; }
+
+        MenuOption[] MenuOptions { get; }
     }
 }
