@@ -178,6 +178,7 @@
     <Compile Include="Custom\Controls\MvxRecyclerViewX.cs" />
     <Compile Include="Custom\Converters\CoordinatesToStringConverter.cs" />
     <Compile Include="Custom\Converters\TimeStringConverter.cs" />
+    <Compile Include="Custom\Converters\TrackingStateIconIdConverter.cs" />
     <Compile Include="Navigation\NavigationType.cs" />
     <Compile Include="Services\FileInputService.cs" />
     <Compile Include="Views\Dialogs\DatePickerDialogView.cs" />
@@ -282,6 +283,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\road_tracking.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_play.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_pause.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

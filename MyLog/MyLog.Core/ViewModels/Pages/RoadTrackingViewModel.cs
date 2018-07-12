@@ -7,6 +7,7 @@ using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
 using MyLog.Core.Csv.Converters;
+using MyLog.Core.Enums;
 using MyLog.Core.Extensions;
 using MyLog.Core.Models.RoadTracking;
 using MyLog.Core.Services;
@@ -19,14 +20,24 @@ namespace MyLog.Core.ViewModels.Pages
     {
         private const bool UseMockData = false;
 
+        private TrackingState _state;
+
         public override string Title { get; } = "Road Tracking";
 
         public MvxObservableCollection<WayItemViewModel> RoadItems { get; } =
             new MvxObservableCollection<WayItemViewModel>();
 
+        public TrackingState State
+        {
+            get => _state;
+            set => SetProperty(ref _state, value);
+        }
+
         public IMvxCommand ImportCommand => new MvxAsyncCommand(ImportAsync);
 
-        protected async Task ImportAsync()
+        public IMvxCommand StartCommand => new MvxCommand(StartTracking);
+
+        private async Task ImportAsync()
         {
             var waypointsData =
                 UseMockData ? WaypointsDataRaw : await Mvx.Resolve<IFileInputService>().ImportTextAsync();
@@ -67,6 +78,11 @@ namespace MyLog.Core.ViewModels.Pages
                 {
                 }
             }
+        }
+
+        private void StartTracking()
+        {
+            State = (TrackingState) (((int) State + 1) % 3);
         }
 
         private const string WaypointsDataRaw = @"Название,Координаты

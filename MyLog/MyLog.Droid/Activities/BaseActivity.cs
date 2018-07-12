@@ -1,4 +1,5 @@
 ﻿using Android.OS;
+using Android.Support.Design.Widget;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Support.V7.AppCompat;
 
