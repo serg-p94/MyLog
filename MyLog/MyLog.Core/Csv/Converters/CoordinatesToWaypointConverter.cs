@@ -14,7 +14,8 @@ namespace MyLog.Core.Csv.Converters
         protected override Waypoint CreateFromString(string text, IReaderRow row, MemberMapData memberMapData)
         {
             var coordinates = MvxCoordinatesHelper.Parse(text);
-            return AvailableWaypoints.FirstOrDefault(w => w.Coordinates.IsEqual(coordinates)) ?? new Waypoint();
+            var waypoint = AvailableWaypoints.FirstOrDefault(w => w.Coordinates.IsEqual(coordinates));
+            return waypoint ?? new Waypoint();
         }
     }
 }

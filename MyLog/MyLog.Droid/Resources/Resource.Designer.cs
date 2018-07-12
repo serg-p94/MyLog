@@ -4602,6 +4602,9 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0c00a8
 			public const int action_image = 2131493032;
 			
+			// aapt resource value: 0x7f0c00c1
+			public const int action_import = 2131493057;
+			
 			// aapt resource value: 0x7f0c0003
 			public const int action_menu_divider = 2131492867;
 			
@@ -5378,6 +5381,22 @@ namespace MyLog.Droid
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0e0000
+			public const int road_tracking = 2131623936;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

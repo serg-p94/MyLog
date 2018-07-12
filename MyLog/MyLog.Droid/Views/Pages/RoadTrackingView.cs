@@ -1,7 +1,7 @@
-﻿using MvvmCross.Droid.Views.Attributes;
+﻿using Android.Views;
+using MvvmCross.Droid.Views.Attributes;
 using MyLog.Core.ViewModels;
 using MyLog.Core.ViewModels.Pages;
-using MyLog.Droid.Views.Models;
 
 namespace MyLog.Droid.Views.Pages
 {
@@ -10,12 +10,17 @@ namespace MyLog.Droid.Views.Pages
     {
         public override int LayoutId => Resource.Layout.RoadTrackingView;
 
-        public override void OnViewModelSet()
+        public override int? MenuId => Resource.Menu.road_tracking;
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            base.OnViewModelSet();
-            MenuOptions = new[] {
-                new MenuOption { Text = "Import", Command = ViewModel.ImportCommand }
-            };
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_import:
+                    ViewModel.ImportCommand?.Execute();
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

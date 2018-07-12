@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
 using MyLog.Core.Csv.Converters;
 using MyLog.Core.Extensions;
 using MyLog.Core.Models.RoadTracking;
+using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Core.ViewModels.RoadTracking;
 
@@ -15,6 +17,8 @@ namespace MyLog.Core.ViewModels.Pages
 {
     public class RoadTrackingViewModel : BasePageViewModel
     {
+        private const bool UseMockData = false;
+
         public override string Title { get; } = "Road Tracking";
 
         public MvxObservableCollection<WayItemViewModel> RoadItems { get; } =
@@ -24,7 +28,8 @@ namespace MyLog.Core.ViewModels.Pages
 
         protected async Task ImportAsync()
         {
-            var waypointsData = WaypointsDataRaw;//await Mvx.Resolve<IFileInputService>().ImportTextAsync();
+            var waypointsData =
+                UseMockData ? WaypointsDataRaw : await Mvx.Resolve<IFileInputService>().ImportTextAsync();
 
             using (var stringReader = new StringReader(waypointsData))
             using (var csvReader = new CsvReader(stringReader))
@@ -40,7 +45,7 @@ namespace MyLog.Core.ViewModels.Pages
                 }
             }
 
-            var waysData = WaysDataRaw;//await Mvx.Resolve<IFileInputService>().ImportTextAsync();
+            var waysData = UseMockData ? WaysDataRaw : await Mvx.Resolve<IFileInputService>().ImportTextAsync();
 
             using (var stringReader = new StringReader(waysData))
             using (var csvReader = new CsvReader(stringReader))

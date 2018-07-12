@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
@@ -9,10 +8,8 @@ using Android.Views;
 using Android.Widget;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.Droid.Views;
-using MyLog.Core.Extensions;
 using MyLog.Core.ViewModels;
 using MyLog.Droid.Navigation;
-using MyLog.Droid.Views.Models;
 using MyLog.Droid.Views.Pages;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
@@ -22,23 +19,12 @@ namespace MyLog.Droid.Activities
     public class SlideMenuHostActivity : BaseActivity<SlideMenuHostViewModel>
     {
         private NavigationType _navigationType;
-        private MenuOption[] _menuOptions;
 
         protected override int LayoutId => Resource.Layout.SlideMenuHostActivity;
 
         protected DrawerLayout DrawerLayout;
         protected FrameLayout FragmentContainer;
         protected MvxListView SlideMenu;
-
-        protected MenuOption[] MenuOptions
-        {
-            get => _menuOptions;
-            set
-            {
-                _menuOptions = value;
-                InvalidateOptionsMenu();
-            }
-        }
 
         public event EventHandler IsDrawerOpenChanged;
 
@@ -71,7 +57,6 @@ namespace MyLog.Droid.Activities
         internal void OnFragmentStart(IPageFragment fragment)
         {
             NavigationType = fragment.NavigationType;
-            MenuOptions = fragment.MenuOptions;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -90,13 +75,7 @@ namespace MyLog.Droid.Activities
                     return true;
             }
 
-            if (MenuOptions.Any(opt => opt.Text == item.ToString()))
-            {
-                MenuOptions.First(opt => opt.Text == item.ToString()).Command?.Execute(null);
-                return true;
-            }
-
-            return base.OnOptionsItemSelected(item);
+            return false;
         }
 
         protected override void OnCreate(Bundle bundle)
@@ -111,19 +90,6 @@ namespace MyLog.Droid.Activities
             SetSupportActionBar(toolbar);
 
             this.CreateBinding().For(v => v.IsDrawerOpen).To<SlideMenuHostViewModel>(vm => vm.IsMenuOpen).TwoWay().Apply();
-        }
-
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            if (MenuOptions.Any())
-            {
-                MenuOptions.ForEach(opt => menu.Add(opt.Text));
-                return true;
-            }
-            else
-            {
-                return base.OnCreateOptionsMenu(menu);
-            }
         }
 
         protected override void Subscribe()

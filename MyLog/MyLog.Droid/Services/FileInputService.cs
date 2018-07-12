@@ -50,7 +50,7 @@ namespace MyLog.Droid.Services
             finally
             {
                 CurrentActivity.ActivityResultCalled -= OnActivityResult;
-                _streamWaitingTaskCompletionSource.SetCanceled();
+                _streamWaitingTaskCompletionSource.TrySetCanceled();
                 _streamWaitingTaskCompletionSource = null;
             }
 

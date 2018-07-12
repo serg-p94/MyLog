@@ -7,7 +7,6 @@ using MvvmCross.Droid.Views.Fragments;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Activities;
 using MyLog.Droid.Navigation;
-using MyLog.Droid.Views.Models;
 
 namespace MyLog.Droid.Views.Pages
 {
@@ -18,7 +17,7 @@ namespace MyLog.Droid.Views.Pages
 
         public virtual NavigationType NavigationType => NavigationType.Lateral;
 
-        public MenuOption[] MenuOptions { get; set; } = new MenuOption[0];
+        public virtual int? MenuId { get; }
 
         public new SlideMenuHostActivity Activity => (SlideMenuHostActivity) base.Activity;
 
@@ -26,6 +25,12 @@ namespace MyLog.Droid.Views.Pages
         {
             get => Activity.SupportActionBar.Title;
             set => Activity.SupportActionBar.Title = value;
+        }
+
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetHasOptionsMenu(MenuId.HasValue);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -64,6 +69,11 @@ namespace MyLog.Droid.Views.Pages
         protected virtual void SubscribeEvents() { }
 
         protected virtual void UnsubscribeEvents() { }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            inflater.Inflate(MenuId.Value, menu);
+        }
     }
 
     public interface IPageFragment : IMvxFragmentView
@@ -72,6 +82,6 @@ namespace MyLog.Droid.Views.Pages
 
         NavigationType NavigationType { get; }
 
-        MenuOption[] MenuOptions { get; }
+        int? MenuId { get; }
     }
 }

@@ -24,9 +24,9 @@ namespace MyLog.Core.ViewModels.RoadTracking
 
         public string DistanceString => $"{Distance} км";
 
-        public float AverageSpeed { get; set; }
+        public double AverageSpeed => Distance / Duration.TotalHours;
 
-        public string AverageSpeedString => $"{AverageSpeed} км/ч";
+        public string AverageSpeedString => $"{AverageSpeed:F0} км/ч";
 
         public bool  IsDetailedMode
         {
