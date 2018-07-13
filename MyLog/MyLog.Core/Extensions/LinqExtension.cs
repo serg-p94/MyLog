@@ -12,5 +12,11 @@ namespace MyLog.Core.Extensions
                 action(item);
             }
         }
+
+        public static void ForEach<TItem>(this IEnumerable<TItem> items, Action<TItem, int> action)
+        {
+            var i = 0;
+            items.ForEach(item => action(item, i++));
+        }
     }
 }

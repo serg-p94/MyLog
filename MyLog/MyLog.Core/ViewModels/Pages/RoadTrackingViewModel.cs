@@ -105,7 +105,7 @@ namespace MyLog.Core.ViewModels.Pages
 
         private void StartStopHandler()
         {
-            State = (TrackingState) (((int) State + 1) % 3);
+            State = (TrackingState) (((int) State + 1) % 2);
 
             switch (State)
             {
@@ -152,6 +152,8 @@ namespace MyLog.Core.ViewModels.Pages
 
         private void ShortPeriodCallback(object state)
         {
+            CheckCurrentWayPassed();
+
             if (_lastMeasuredLocation.Coordinates != null)
             {
                 var distance = CurrentLocation.DistanceTo(_lastMeasuredLocation.Coordinates) / 1000;
@@ -164,6 +166,8 @@ namespace MyLog.Core.ViewModels.Pages
                 DateTime = DateTime.Now,
                 Coordinates = CurrentLocation
             };
+
+            RaisePropertyChanged(() => DistanceToStopString);
 
             Debug.WriteLine($"[{DateTime.Now}] - {nameof(ShortPeriodCallback)}: {nameof(CurrentSpeed)} = {CurrentSpeed}");
         }
@@ -178,6 +182,32 @@ namespace MyLog.Core.ViewModels.Pages
                 }));
                 Debug.WriteLine(
                     $"[{DateTime.Now}] - {nameof(LongPeriodCallback)}: {nameof(CurrentLocation)} = {CurrentLocation.ConvertToString()}");
+            }
+        }
+
+        private WayItemViewModel CurrentWay => RoadItems.FirstOrDefault(w => !w.IsPassed);
+
+        public double DistanceToStop
+        {
+            get
+            {
+                if (CurrentWay != null && CurrentLocation != null)
+                {
+                    return CurrentLocation.DistanceTo(CurrentWay.To.Coordinates);
+                }
+
+                return double.NaN;
+            }
+        }
+
+        public string DistanceToStopString =>
+            DistanceToStop < 1000 ? $"{DistanceToStop:F0} m" : $"{DistanceToStop / 1000:F1} km";
+
+        private void CheckCurrentWayPassed()
+        {
+            if (CurrentWay != null && CurrentLocation != null)
+            {
+                CurrentWay.IsPassed = CurrentWay.To.Coordinates.DistanceTo(CurrentLocation) < 10;
             }
         }
 

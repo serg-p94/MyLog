@@ -7,6 +7,9 @@ namespace MyLog.Core.ViewModels.RoadTracking
     public class WayItemViewModel : MvxNotifyPropertyChanged
     {
         private bool _isDetailedMode;
+        private bool _isPassed;
+
+        private IMvxCommand _detailedModeCommand;
 
         public Waypoint From { get; set; }
 
@@ -34,7 +37,11 @@ namespace MyLog.Core.ViewModels.RoadTracking
             set => SetProperty(ref _isDetailedMode, value);
         }
 
-        private IMvxCommand _detailedModeCommand;
+        public bool IsPassed
+        {
+            get => _isPassed;
+            set => SetProperty(ref _isPassed, value);
+        }
 
         public IMvxCommand DetailedModeCommand =>
             _detailedModeCommand = _detailedModeCommand ?? new MvxCommand(() => IsDetailedMode = !IsDetailedMode);
