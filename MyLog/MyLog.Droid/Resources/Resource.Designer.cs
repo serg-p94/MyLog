@@ -6213,13 +6213,13 @@ namespace MyLog.Droid
 			public const int Text = 2131165582;
 			
 			// aapt resource value: 0x7f070191
-			public const int Text_Accent_Dark = 2131165585;
+			public const int Text_Accent = 2131165585;
 			
 			// aapt resource value: 0x7f070190
-			public const int Text_Light_Dark = 2131165584;
+			public const int Text_Light = 2131165584;
 			
 			// aapt resource value: 0x7f07018f
-			public const int Text_Normal_Dark = 2131165583;
+			public const int Text_Normal = 2131165583;
 			
 			// aapt resource value: 0x7f0700d3
 			public const int TextAppearance_AppCompat = 2131165395;

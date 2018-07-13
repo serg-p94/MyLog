@@ -6,12 +6,16 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical">
-  <!--<TextView
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:gravity="center"
+    android:orientation="vertical"
     android:background="@color/grayDark"
-    android:text="Current area description" />-->
+    app:MvxBind="Visibility Visibility(IsStarted);">
+    <TextView
+      style="@style/Text.Normal"
+      app:MvxBind="Text 'Speed: ' + CurrentSpeed;" />
+  </LinearLayout>
   <controls.MvxRecyclerViewX
     android:id="@+id/List"
     android:layout_width="match_parent"
@@ -27,5 +31,5 @@
     android:layout_gravity="end|bottom"
     android:clickable="true"
     app:elevation="5dp"
-    app:MvxBind="Click StartCommand; DrawableId TrackingStateIconId(State);" />
+    app:MvxBind="Click StartStopCommand; DrawableId TrackingStateIconId(State);" />
 </android.support.design.widget.CoordinatorLayout>

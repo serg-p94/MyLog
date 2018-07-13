@@ -18,7 +18,8 @@ namespace MyLog.Core.Services
 
         public void Start() => _watcher.Start(new MvxLocationOptions {
             Accuracy = MvxLocationAccuracy.Fine,
-            TimeBetweenUpdates = TimeSpan.FromSeconds(1)
+            TimeBetweenUpdates = TimeSpan.FromSeconds(1),
+            MovementThresholdInM = 1
         }, OnLocation, OnError);
 
         public void Stop() => _watcher.Stop();

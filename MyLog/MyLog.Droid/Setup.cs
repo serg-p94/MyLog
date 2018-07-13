@@ -19,6 +19,7 @@ namespace MyLog.Droid
         {
             base.InitializePlatformServices();
             Mvx.RegisterSingleton((IFileInputService) new FileInputService());
+            Mvx.RegisterSingleton((IStorageService) new StorageService());
         }
 
         protected override IMvxApplication CreateApp() => new App();

@@ -24,10 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <TextView
-          style="@style/Text.Accent.Dark"
+          style="@style/Text.Accent"
           app:MvxBind="Text To.Name;" />
         <TextView
-          style="@style/Text.Light.Dark"
+          style="@style/Text.Light"
           app:MvxBind="Text From.Name;" />
       </LinearLayout>
       <ImageView
@@ -64,10 +64,10 @@
           android:paddingRight="10dp"
           android:src="@drawable/ic_clock" />
         <TextView
-          style="@style/Text.Normal.Dark"
+          style="@style/Text.Normal"
           app:MvxBind="Text TimeString(StartTime) + ' - ' + TimeString(FinishTime);" />
         <TextView
-          style="@style/Text.Light.Dark"
+          style="@style/Text.Light"
           android:layout_marginLeft="10dp"
           app:MvxBind="Text TimeString(Duration);" />
       </LinearLayout>
@@ -86,7 +86,7 @@
           android:paddingRight="10dp"
           android:src="@drawable/ic_sofa" />
         <TextView
-          style="@style/Text.Normal.Dark"
+          style="@style/Text.Normal"
           app:MvxBind="Text TimeString(RestTime);" />
       </LinearLayout>
 
@@ -103,10 +103,10 @@
           android:paddingRight="10dp"
           android:src="@drawable/ic_car" />
         <TextView
-          style="@style/Text.Normal.Dark"
+          style="@style/Text.Normal"
           app:MvxBind="Text DistanceString;" />
         <TextView
-          style="@style/Text.Light.Dark"
+          style="@style/Text.Light"
           android:layout_marginLeft="10dp"
           app:MvxBind="Text AverageSpeedString;" />
       </LinearLayout>

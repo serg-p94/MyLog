@@ -6,17 +6,17 @@
     <item name="android:layout_height">wrap_content</item>
   </style>
   
-  <style name="Text.Normal.Dark" parent="@style/Text">
+  <style name="Text.Normal" parent="@style/Text">
     <item name="android:textColor">@color/black</item>
     <item name="android:textSize">16sp</item>
   </style>
 
-  <style name="Text.Light.Dark" parent="@style/Text">
+  <style name="Text.Light" parent="@style/Text">
     <item name="android:textColor">@color/grayLight</item>
     <item name="android:textSize">12sp</item>
   </style>
 
-  <style name="Text.Accent.Dark" parent="@style/Text.Normal.Dark">
+  <style name="Text.Accent" parent="@style/Text.Normal">
     <item name="android:textStyle">bold</item>
   </style>
 

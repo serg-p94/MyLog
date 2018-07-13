@@ -1,14 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using CsvHelper;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
+using MvvmCross.Plugins.Messenger;
 using MyLog.Core.Csv.Converters;
 using MyLog.Core.Enums;
 using MyLog.Core.Extensions;
+using MyLog.Core.Helpers;
+using MyLog.Core.Messenger;
 using MyLog.Core.Models.RoadTracking;
 using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Abstract;
@@ -19,23 +25,40 @@ namespace MyLog.Core.ViewModels.Pages
     public class RoadTrackingViewModel : BasePageViewModel
     {
         private const bool UseMockData = false;
+        private const int ShortPeriod = 1_000;
+        private const int LongPeriod = 10_000;
 
         private TrackingState _state;
 
-        public override string Title { get; } = "Road Tracking";
+        private Timer _shortPeriodTimer;
+        private Timer _longPeriodTimer;
 
-        public MvxObservableCollection<WayItemViewModel> RoadItems { get; } =
-            new MvxObservableCollection<WayItemViewModel>();
+        private MvxSubscriptionToken _locationSubscriptionToken;
+
+        public override string Title { get; } = "Road Tracking";
 
         public TrackingState State
         {
             get => _state;
-            set => SetProperty(ref _state, value);
+            set
+            {
+                SetProperty(ref _state, value);
+                RaisePropertyChanged(() => IsStarted);
+            }
         }
+
+        public bool IsStarted => State == TrackingState.Started;
+
+        public MvxObservableCollection<WayItemViewModel> RoadItems { get; } =
+            new MvxObservableCollection<WayItemViewModel>();
 
         public IMvxCommand ImportCommand => new MvxAsyncCommand(ImportAsync);
 
-        public IMvxCommand StartCommand => new MvxCommand(StartTracking);
+        public IMvxCommand StartStopCommand => new MvxCommand(StartStopHandler);
+
+        private LocationService LocationService { get; } = Mvx.GetSingleton<LocationService>();
+
+        private IMvxMessenger Messenger { get; } = Mvx.Resolve<IMvxMessenger>();
 
         private async Task ImportAsync()
         {
@@ -80,9 +103,82 @@ namespace MyLog.Core.ViewModels.Pages
             }
         }
 
-        private void StartTracking()
+        private void StartStopHandler()
         {
             State = (TrackingState) (((int) State + 1) % 3);
+
+            switch (State)
+            {
+                case TrackingState.Started:
+                    StartTracking();
+                    break;
+                case TrackingState.Stopped:
+                case TrackingState.Paused:
+                    StopTracking();
+                    break;
+            }
+        }
+
+        private void StartTracking()
+        {
+            _locationSubscriptionToken = Messenger.Subscribe<LocationMessage>(msg => CurrentLocation = msg.Coordinates);
+            LocationService.Start();
+            _shortPeriodTimer = new Timer(ShortPeriodCallback, null, 0, ShortPeriod);
+            _longPeriodTimer = new Timer(LongPeriodCallback, null, 0, LongPeriod);
+        }
+
+        private void StopTracking()
+        {
+            LocationService.Stop();
+            Messenger.Unsubscribe<LocationMessage>(_locationSubscriptionToken);
+            _shortPeriodTimer.Dispose();
+            _shortPeriodTimer = null;
+            _longPeriodTimer.Dispose();
+            _longPeriodTimer = null;
+        }
+
+        private readonly LinkedList<LocationLogItem> _coordinatesLog = new LinkedList<LocationLogItem>();
+
+        public MvxCoordinates CurrentLocation { get; set; }
+
+        private LocationLogItem _lastMeasuredLocation;
+        private double _currentSpeed;
+
+        public double CurrentSpeed
+        {
+            get => _currentSpeed;
+            set => SetProperty(ref _currentSpeed, value);
+        }
+
+        private void ShortPeriodCallback(object state)
+        {
+            if (_lastMeasuredLocation.Coordinates != null)
+            {
+                var distance = CurrentLocation.DistanceTo(_lastMeasuredLocation.Coordinates) / 1000;
+                var time = (DateTime.Now - _lastMeasuredLocation.DateTime).TotalHours;
+                CurrentSpeed = distance / time;
+            }
+
+            _lastMeasuredLocation = new LocationLogItem
+            {
+                DateTime = DateTime.Now,
+                Coordinates = CurrentLocation
+            };
+
+            Debug.WriteLine($"[{DateTime.Now}] - {nameof(ShortPeriodCallback)}: {nameof(CurrentSpeed)} = {CurrentSpeed}");
+        }
+
+        private void LongPeriodCallback(object state)
+        {
+            if (CurrentLocation != null)
+            {
+                _coordinatesLog.AddLast(new LinkedListNode<LocationLogItem>(new LocationLogItem {
+                    DateTime = DateTime.Now,
+                    Coordinates = CurrentLocation
+                }));
+                Debug.WriteLine(
+                    $"[{DateTime.Now}] - {nameof(LongPeriodCallback)}: {nameof(CurrentLocation)} = {CurrentLocation.ConvertToString()}");
+            }
         }
 
         private const string WaypointsDataRaw = @"Название,Координаты
