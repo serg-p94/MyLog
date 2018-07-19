@@ -189,6 +189,7 @@
     <Compile Include="Views\Pages\AddRecordView.cs" />
     <Compile Include="Views\Pages\BaseLogFragment.cs" />
     <Compile Include="Views\Pages\JourneyLogView.cs" />
+    <Compile Include="Views\Pages\RoadTrackingReportView.cs" />
     <Compile Include="Views\Pages\RoadTrackingView.cs" />
     <Compile Include="Activities\SlideMenuHostActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -223,6 +224,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_way.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\RoadTrackingReportView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_log.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
