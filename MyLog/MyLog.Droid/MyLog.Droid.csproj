@@ -201,7 +201,6 @@
     <Compile Include="Services\FileInputService.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Views\Dialogs\DatePickerDialogView.cs" />
-    <Compile Include="Views\Pages\AddRecordView.cs" />
     <Compile Include="Views\Pages\BaseLogFragment.cs" />
     <Compile Include="Views\Pages\JourneyLogView.cs" />
     <Compile Include="Views\Pages\RoadTrackingReportView.cs" />
