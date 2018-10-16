@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MvvmCross.Plugins.Location;
 using MvvmCross.Plugins.Messenger;
 using MyLog.Core.Messenger;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 
 namespace MyLog.Core.Services
 {
@@ -16,11 +19,15 @@ namespace MyLog.Core.Services
             _messenger = messenger;
         }
 
-        public void Start() => _watcher.Start(new MvxLocationOptions {
-            Accuracy = MvxLocationAccuracy.Fine,
-            TimeBetweenUpdates = TimeSpan.FromSeconds(1),
-            MovementThresholdInM = 1
-        }, OnLocation, OnError);
+        public async void Start()
+        {
+            await EnsurePermissionExists();
+            _watcher.Start(new MvxLocationOptions {
+                Accuracy = MvxLocationAccuracy.Fine,
+                TimeBetweenUpdates = TimeSpan.FromSeconds(1),
+                MovementThresholdInM = 1
+            }, OnLocation, OnError);
+        }
 
         public void Stop() => _watcher.Stop();
 
@@ -33,6 +40,15 @@ namespace MyLog.Core.Services
         private void OnError(MvxLocationError error)
         {
             throw new Exception(error.ToString());
+        }
+
+        private async Task EnsurePermissionExists()
+        {
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+            if (status != PermissionStatus.Granted)
+            {
+                await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+            }
         }
     }
 }

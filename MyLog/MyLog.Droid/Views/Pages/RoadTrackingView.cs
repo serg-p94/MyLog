@@ -14,12 +14,6 @@ namespace MyLog.Droid.Views.Pages
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch (item.ItemId)
-            {
-                case Resource.Id.action_import:
-                    ViewModel.ImportCommand?.Execute();
-                    return true;
-            }
             return base.OnOptionsItemSelected(item);
         }
     }

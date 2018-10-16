@@ -9,6 +9,7 @@
     <PackageReference Include="MvvmCross" Version="5.6.3" />
     <PackageReference Include="MvvmCross.Plugin.Location" Version="5.6.3" />
     <PackageReference Include="MvvmCross.Plugin.Messenger" Version="4.4.0" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="Realm" Version="3.2.0" />
   </ItemGroup>
 
