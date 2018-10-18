@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using MvvmCross.Plugins.Location;
 using MvvmCross.Plugins.Messenger;
+using MyLog.Core.Helpers;
 using MyLog.Core.Messenger;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
@@ -25,7 +26,8 @@ namespace MyLog.Core.Services
             _watcher.Start(new MvxLocationOptions {
                 Accuracy = MvxLocationAccuracy.Fine,
                 TimeBetweenUpdates = TimeSpan.FromSeconds(1),
-                MovementThresholdInM = 1
+                MovementThresholdInM = 1,
+                TrackingMode = MvxLocationTrackingMode.Foreground
             }, OnLocation, OnError);
         }
 
@@ -33,7 +35,7 @@ namespace MyLog.Core.Services
 
         private void OnLocation(MvxGeoLocation location)
         {
-            var message = new LocationMessage(this, location.Coordinates);
+            var message = new LocationMessage(this, location.Coordinates.ToCoordinates());
             _messenger.Publish(message);
         }
 

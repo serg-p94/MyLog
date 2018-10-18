@@ -200,7 +200,6 @@
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
     <Compile Include="Custom\Controls\MvxRecyclerViewX.cs" />
-    <Compile Include="Custom\Converters\CoordinatesToStringConverter.cs" />
     <Compile Include="Custom\Converters\TimeStringConverter.cs" />
     <Compile Include="Custom\Converters\TrackingStateIconIdConverter.cs" />
     <Compile Include="MainApplication.cs" />

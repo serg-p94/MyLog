@@ -15,10 +15,10 @@
     app:MvxBind="Visibility Visibility(IsStarted);">
     <TextView
       style="@style/Text.Normal"
-      app:MvxBind="Text 'Speed: ' + CurrentSpeed;" />
+      app:MvxBind="Text 'Speed: ' + SpeedText;" />
     <TextView
       style="@style/Text.Normal"
-      app:MvxBind="Text 'Distance to stop: ' + DistanceToStopString;" />
+      app:MvxBind="Text 'Coordinates: ' + CoordinatesText;" />
   </LinearLayout>
   <android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"

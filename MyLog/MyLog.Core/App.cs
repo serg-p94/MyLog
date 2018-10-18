@@ -21,6 +21,7 @@ namespace MyLog.Core
         private void RegisterServices()
         {
             Mvx.RegisterSingleton(new LocationService(Mvx.Resolve<IMvxLocationWatcher>(), Mvx.Resolve<IMvxMessenger>()));
+            Mvx.RegisterSingleton(new RoadTrackingService());
         }
 
         private void ConfigCulture()
