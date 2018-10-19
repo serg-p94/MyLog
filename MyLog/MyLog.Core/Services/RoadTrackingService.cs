@@ -28,6 +28,8 @@ namespace MyLog.Core.Services
 
         public event EventHandler StateChanged;
 
+        public bool IsStarted { get; private set; }
+
         #endregion
 
         public void StartTracking()
@@ -35,6 +37,7 @@ namespace MyLog.Core.Services
             _locationSubscriptionToken = Messenger.Subscribe<LocationMessage>(msg => CurrentCoordinates = msg.Coordinates);
             LocationService.Start();
             _updateTimer = new Timer(UpdateCallback, null, 0, Period);
+            IsStarted = true;
         }
 
         public void StopTracking()
@@ -43,6 +46,7 @@ namespace MyLog.Core.Services
             Messenger.Unsubscribe<LocationMessage>(_locationSubscriptionToken);
             _updateTimer.Dispose();
             _updateTimer = null;
+            IsStarted = false;
         }
 
         private void UpdateCallback(object state)

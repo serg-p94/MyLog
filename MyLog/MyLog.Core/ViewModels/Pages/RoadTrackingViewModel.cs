@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MyLog.Core.Enums;
-using MyLog.Core.Helpers;
 using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Abstract;
 
@@ -33,6 +33,12 @@ namespace MyLog.Core.ViewModels.Pages
         public bool IsStarted => State == TrackingState.Started;
 
         public IMvxCommand StartStopCommand => new MvxCommand(StartStopHandler);
+
+        public override async Task Initialize()
+        {
+            await base.Initialize();
+            State = RoadTrackingService.IsStarted ? TrackingState.Started : TrackingState.Stopped;
+        }
 
         private void StartStopHandler()
         {
