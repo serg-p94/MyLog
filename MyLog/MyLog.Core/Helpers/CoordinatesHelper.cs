@@ -12,6 +12,11 @@ namespace MyLog.Core.Helpers
 
         public static double DistanceTo(this Coordinates c1, Coordinates c2)
         {
+            if (c1.Equals(c2))
+            {
+                return 0;
+            }
+
             var theta = c1.Longitude - c2.Longitude;
 
             var distance = Math.Sin(DegToRad(c1.Latitude)) * Math.Sin(DegToRad(c2.Latitude)) +

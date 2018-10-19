@@ -1,12 +1,11 @@
 ﻿using System;
-using MvvmCross.Plugins.Location;
 
 namespace MyLog.Core.Models.RoadTracking
 {
     public struct LocationMeasurement
     {
-        public DateTime DateTime { get; set; }
+        public DateTimeOffset Timestamp { get; set; }
 
-        public MvxCoordinates Coordinates { get; set; }
+        public Coordinates Coordinates { get; set; }
     }
 }

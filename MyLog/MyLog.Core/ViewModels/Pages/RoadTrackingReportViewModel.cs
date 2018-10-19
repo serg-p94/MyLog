@@ -8,13 +8,6 @@ namespace MyLog.Core.ViewModels.Pages
 {
     public class RoadTrackingReportViewModel : BasePageViewModel
     {
-        public IList<LocationMeasurement> LogItems { get; } = new List<LocationMeasurement> {
-            new LocationMeasurement { DateTime = DateTime.Now, Coordinates = new MvxCoordinates() },
-            new LocationMeasurement { DateTime = DateTime.Now, Coordinates = new MvxCoordinates() },
-            new LocationMeasurement { DateTime = DateTime.Now, Coordinates = new MvxCoordinates() },
-            new LocationMeasurement { DateTime = DateTime.Now, Coordinates = new MvxCoordinates() },
-            new LocationMeasurement { DateTime = DateTime.Now, Coordinates = new MvxCoordinates() },
-            new LocationMeasurement { DateTime = DateTime.Now, Coordinates = new MvxCoordinates() },
-        };
+        public IList<LocationMeasurement> LogItems { get; } = new List<LocationMeasurement> {};
     }
 }
