@@ -8,5 +8,7 @@ namespace MyLog.Droid.Views.Pages
     public class RoadTrackingView : BasePageFragment<RoadTrackingViewModel>
     {
         public override int LayoutId => Resource.Layout.RoadTrackingView;
+
+        public override int? MenuId => Resource.Menu.road_tracking;
     }
 }

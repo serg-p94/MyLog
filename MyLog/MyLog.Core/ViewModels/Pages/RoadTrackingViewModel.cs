@@ -1,42 +1,67 @@
 ﻿using System;
-using System.Collections.Generic;
-using MvvmCross.Plugins.Location;
-using MyLog.Core.Models.RoadTracking;
+using System.Threading.Tasks;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
+using MyLog.Core.Enums;
+using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Abstract;
-using MyLog.Core.ViewModels.RoadTracking;
 
 namespace MyLog.Core.ViewModels.Pages
 {
     public class RoadTrackingViewModel : BasePageViewModel
     {
+        private TrackingState _state;
+
+        protected RoadTrackingService RoadTrackingService { get; } = Mvx.Resolve<RoadTrackingService>();
+
         public override string Title { get; } = "Road Tracking";
 
-        private static Waypoint From => new Waypoint {
-            Name = "From point",
-            Coordinates = new MvxCoordinates()
-        };
+        public string SpeedText => $"{RoadTrackingService.Speed:F1} m/s";
 
-        private static Waypoint To => new Waypoint
+        public string CoordinatesText => RoadTrackingService.CurrentCoordinates.ToString();
+
+        public TrackingState State
         {
-            Name = "To point",
-            Coordinates = new MvxCoordinates()
-        };
+            get => _state;
+            set
+            {
+                SetProperty(ref _state, value);
+                RaisePropertyChanged(() => IsStarted);
+            }
+        }
 
-        public IList<WayItemViewModel> RoadItems { get; } = new List<WayItemViewModel> {
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, RestTime = TimeSpan.FromMinutes(15),
-                AverageSpeed = 74.5f,
-                From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, RestTime = TimeSpan.FromMinutes(30),
-                AverageSpeed = 74.5f, From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, RestTime = TimeSpan.FromMinutes(90),
-                AverageSpeed = 74.5f, From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
-                From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
-                From = From, To = To},
-            new WayItemViewModel(){Distance = 123.45f, StartTime = DateTime.Now, FinishTime = DateTime.Now, AverageSpeed = 74.5f,
-                From = From, To = To},
+        public bool IsStarted => State == TrackingState.Started;
 
-        };
+        public IMvxCommand StartStopCommand => new MvxCommand(StartStopHandler);
+
+        public override async Task Initialize()
+        {
+            await base.Initialize();
+            State = RoadTrackingService.IsStarted ? TrackingState.Started : TrackingState.Stopped;
+        }
+
+        private void StartStopHandler()
+        {
+            State = (TrackingState) (((int) State + 1) % 2);
+
+            switch (State)
+            {
+                case TrackingState.Started:
+                    RoadTrackingService.StartTracking();
+                    RoadTrackingService.StateChanged += OnStateChanged;
+                    break;
+                case TrackingState.Stopped:
+                case TrackingState.Paused:
+                    RoadTrackingService.StopTracking();
+                    RoadTrackingService.StateChanged -= OnStateChanged;
+                    break;
+            }
+        }
+
+        private void OnStateChanged(object sender, EventArgs e)
+        {
+            RaisePropertyChanged(() => CoordinatesText);
+            RaisePropertyChanged(() => SpeedText);
+        }
     }
 }

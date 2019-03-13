@@ -1,4 +1,5 @@
-﻿using MvvmCross.Core.ViewModels;
+﻿using System.Globalization;
+using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
 using MvvmCross.Plugins.Messenger;
@@ -12,6 +13,7 @@ namespace MyLog.Core
         public override void Initialize()
         {
             base.Initialize();
+            ConfigCulture();
             RegisterServices();
             RegisterNavigationServiceAppStart<RoadTrackingViewModel>();
         }
@@ -19,6 +21,14 @@ namespace MyLog.Core
         private void RegisterServices()
         {
             Mvx.RegisterSingleton(new LocationService(Mvx.Resolve<IMvxLocationWatcher>(), Mvx.Resolve<IMvxMessenger>()));
+            Mvx.RegisterSingleton(new RoadTrackingService());
+        }
+
+        private void ConfigCulture()
+        {
+            var culture = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+            culture.NumberFormat.NumberDecimalSeparator = ".";
+            CultureInfo.DefaultThreadCurrentCulture = culture;
         }
     }
 }

@@ -17,17 +17,17 @@
         android:layout_height="50dp"
         android:layout_marginRight="5dp"
         android:layout_gravity="top"
-        android:src="@drawable/default_image" />
+        app:MvxBind="DrawableName If(IsPassed, 'ic_checked_circle', 'default_image');" />
       <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <TextView
-          style="@style/Text.Accent.Dark"
+          style="@style/Text.Accent"
           app:MvxBind="Text To.Name;" />
         <TextView
-          style="@style/Text.Light.Dark"
+          style="@style/Text.Light"
           app:MvxBind="Text From.Name;" />
       </LinearLayout>
       <ImageView
@@ -64,10 +64,10 @@
           android:paddingRight="10dp"
           android:src="@drawable/ic_clock" />
         <TextView
-          style="@style/Text.Normal.Dark"
+          style="@style/Text.Normal"
           app:MvxBind="Text TimeString(StartTime) + ' - ' + TimeString(FinishTime);" />
         <TextView
-          style="@style/Text.Light.Dark"
+          style="@style/Text.Light"
           android:layout_marginLeft="10dp"
           app:MvxBind="Text TimeString(Duration);" />
       </LinearLayout>
@@ -76,16 +76,17 @@
       <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:MvxBind="Visibility Visibility();">
         <ImageView
           android:layout_width="wrap_content"
-          android:layout_height="match_parent"
+          android:layout_height="wrap_content"
           android:layout_gravity="center"
           android:paddingLeft="5dp"
           android:paddingRight="10dp"
           android:src="@drawable/ic_sofa" />
         <TextView
-          style="@style/Text.Normal.Dark"
+          style="@style/Text.Normal"
           app:MvxBind="Text TimeString(RestTime);" />
       </LinearLayout>
 
@@ -94,11 +95,18 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:paddingLeft="5dp"
+          android:paddingRight="10dp"
+          android:src="@drawable/ic_car" />
         <TextView
-          style="@style/Text.Normal.Dark"
+          style="@style/Text.Normal"
           app:MvxBind="Text DistanceString;" />
         <TextView
-          style="@style/Text.Light.Dark"
+          style="@style/Text.Light"
           android:layout_marginLeft="10dp"
           app:MvxBind="Text AverageSpeedString;" />
       </LinearLayout>

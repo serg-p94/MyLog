@@ -3,20 +3,41 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:orientation="vertical"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
-  <!--<TextView
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:gravity="center"
-    android:background="@color/grayDark"
-    android:text="Current area description" />-->
-  <controls.MvxRecyclerViewX
-    android:id="@+id/List"
+    android:orientation="vertical"
+    android:background="@color/primaryLightColor"
+    android:elevation="10dp"
+    app:MvxBind="Visibility Visibility(IsStarted);">
+    <TextView
+      style="@style/Text.Normal"
+      app:MvxBind="Text 'Speed: ' + SpeedText;" />
+    <TextView
+      style="@style/Text.Normal"
+      app:MvxBind="Text 'Coordinates: ' + CoordinatesText;" />
+  </LinearLayout>
+  <android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:divider="@null"
-    app:MvxItemTemplate="@layout/item_way"
-    app:MvxBind="ItemsSource RoadItems;" />
+    android:layout_height="match_parent">
+    <controls.MvxRecyclerViewX
+      android:id="@+id/List"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:divider="@null"
+      app:MvxItemTemplate="@layout/item_way"
+      app:MvxBind="ItemsSource RoadItems;" />
+    <android.support.design.widget.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:layout_gravity="end|bottom"
+      android:clickable="true"
+      app:elevation="5dp"
+      app:MvxBind="Click StartStopCommand; DrawableId TrackingStateIconId(State);" />
+  </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>

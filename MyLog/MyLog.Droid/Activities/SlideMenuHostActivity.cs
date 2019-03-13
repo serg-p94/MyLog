@@ -13,7 +13,7 @@ using MyLog.Droid.Navigation;
 using MyLog.Droid.Views.Pages;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-namespace MyLog.Droid
+namespace MyLog.Droid.Activities
 {
     [Activity(Label = "SlideMenuHostActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme")]
     public class SlideMenuHostActivity : BaseActivity<SlideMenuHostViewModel>
@@ -72,10 +72,10 @@ namespace MyLog.Droid
                     {
                         OnBackPressed();
                     }
-                    break;
+                    return true;
             }
 
-            return base.OnOptionsItemSelected(item);
+            return false;
         }
 
         protected override void OnCreate(Bundle bundle)
