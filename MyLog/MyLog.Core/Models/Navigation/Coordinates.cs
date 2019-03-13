@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Linq;
 
-namespace MyLog.Core.Models.RoadTracking
+namespace MyLog.Core.Models.Navigation
 {
     public struct Coordinates
     {
@@ -9,7 +9,7 @@ namespace MyLog.Core.Models.RoadTracking
 
         public double Longitude { get; set; }
 
-        public override string ToString() => $"{Latitude:F6}, {Longitude:F6}";
+        public override string ToString() => $"{Latitude:F6},{Longitude:F6}";
 
         public static Coordinates Parse(string text)
         {

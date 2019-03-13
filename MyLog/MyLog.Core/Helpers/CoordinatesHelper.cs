@@ -1,5 +1,6 @@
 ﻿using System;
 using MvvmCross.Plugins.Location;
+using MyLog.Core.Models.Navigation;
 using MyLog.Core.Models.RoadTracking;
 
 namespace MyLog.Core.Helpers

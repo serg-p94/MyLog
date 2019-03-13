@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
-using MyLog.Core.Services;
+using MyLog.Core.Services.Abstract;
 using Newtonsoft.Json;
 
 namespace MyLog.Droid.Services

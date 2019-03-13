@@ -7,6 +7,7 @@ using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
 using MyLog.Core.Helpers;
 using MyLog.Core.Messenger;
+using MyLog.Core.Models.Navigation;
 using MyLog.Core.Models.RoadTracking;
 
 namespace MyLog.Core.Services

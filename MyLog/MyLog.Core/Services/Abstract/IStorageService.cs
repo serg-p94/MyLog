@@ -1,4 +1,4 @@
-﻿namespace MyLog.Core.Services
+﻿namespace MyLog.Core.Services.Abstract
 {
     public interface IStorageService
     {

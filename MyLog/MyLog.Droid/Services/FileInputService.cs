@@ -8,7 +8,7 @@ using MvvmCross.Platform;
 using MvvmCross.Platform.Core;
 using MvvmCross.Platform.Droid.Platform;
 using MvvmCross.Platform.Droid.Views;
-using MyLog.Core.Services;
+using MyLog.Core.Services.Abstract;
 using Uri = Android.Net.Uri;
 
 namespace MyLog.Droid.Services

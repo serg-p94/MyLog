@@ -1,4 +1,5 @@
 ﻿using System;
+using MyLog.Core.Models.Navigation;
 
 namespace MyLog.Core.Models.RoadTracking
 {
