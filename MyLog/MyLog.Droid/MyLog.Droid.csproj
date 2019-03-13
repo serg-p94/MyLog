@@ -206,7 +206,9 @@
     <Compile Include="Navigation\NavigationType.cs" />
     <Compile Include="Services\FileInputService.cs" />
     <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Services\WebService.cs" />
     <Compile Include="Views\Dialogs\DatePickerDialogView.cs" />
+    <Compile Include="Views\Dialogs\ListDialogView.cs" />
     <Compile Include="Views\Pages\BaseLogFragment.cs" />
     <Compile Include="Views\Pages\RoadTrackingReportView.cs" />
     <Compile Include="Views\Pages\RoadTrackingView.cs" />
@@ -216,6 +218,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\Pages\BasePageFragment.cs" />
+    <Compile Include="Views\Pages\SettingsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -326,6 +329,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\SettingsView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
