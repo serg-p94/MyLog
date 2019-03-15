@@ -7,7 +7,7 @@ using Android.Support.V4.Widget;
 using Android.Views;
 using Android.Widget;
 using MvvmCross.Binding.BindingContext;
-using MvvmCross.Binding.Droid.Views;
+using MvvmCross.Platforms.Android.Binding.Views;
 using MyLog.Core.ViewModels;
 using MyLog.Droid.Navigation;
 using MyLog.Droid.Views.Pages;

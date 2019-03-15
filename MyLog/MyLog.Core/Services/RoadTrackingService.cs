@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using MvvmCross.Platform;
-using MvvmCross.Plugins.Messenger;
+using MvvmCross;
+using MvvmCross.Plugin.Messenger;
 using MyLog.Core.Helpers;
 using MyLog.Core.Messenger;
 using MyLog.Core.Models.Navigation;
@@ -20,9 +20,9 @@ namespace MyLog.Core.Services
 
         private Timer _updateTimer;
 
-        private LocationService LocationService { get; } = Mvx.GetSingleton<LocationService>();
+        private LocationService LocationService { get; } = Mvx.IoCProvider.GetSingleton<LocationService>();
 
-        private IMvxMessenger Messenger { get; } = Mvx.Resolve<IMvxMessenger>();
+        private IMvxMessenger Messenger { get; } = Mvx.IoCProvider.Resolve<IMvxMessenger>();
 
         #region State
 

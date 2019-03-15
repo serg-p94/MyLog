@@ -1,4 +1,4 @@
-﻿using MvvmCross.Droid.Views.Attributes;
+﻿using MvvmCross.Platforms.Android.Presenters.Attributes;
 using MyLog.Core.ViewModels;
 using MyLog.Core.ViewModels.Pages;
 

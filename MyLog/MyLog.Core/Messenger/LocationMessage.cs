@@ -1,6 +1,5 @@
-﻿using MvvmCross.Plugins.Messenger;
+﻿using MvvmCross.Plugin.Messenger;
 using MyLog.Core.Models.Navigation;
-using MyLog.Core.Models.RoadTracking;
 
 namespace MyLog.Core.Messenger
 {

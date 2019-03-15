@@ -1,12 +1,12 @@
-﻿using MvvmCross.Core.Navigation;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
+﻿using MvvmCross;
+using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
 
 namespace MyLog.Core.ViewModels.Abstract
 {
     public abstract class BasePageViewModel : MvxViewModel
     {
-        protected IMvxNavigationService NavigationService { get; } = Mvx.Resolve<IMvxNavigationService>();
+        protected IMvxNavigationService NavigationService { get; } = Mvx.IoCProvider.Resolve<IMvxNavigationService>();
 
         public virtual string Title { get; }
     }

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using MvvmCross.Core.Navigation;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
+using MvvmCross;
+using MvvmCross.Commands;
+using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
 using MyLog.Core.ViewModels.Pages;
 
 namespace MyLog.Core.ViewModels
@@ -15,7 +16,7 @@ namespace MyLog.Core.ViewModels
             InitMenuItems();
         }
 
-        public IMvxNavigationService NavigationService { get; } = Mvx.Resolve<IMvxNavigationService>();
+        public IMvxNavigationService NavigationService { get; } = Mvx.IoCProvider.Resolve<IMvxNavigationService>();
 
         public IList<SlideMenuItemViewModel> MenuItems { get; private set; } = new List<SlideMenuItemViewModel>();
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
+using MvvmCross;
+using MvvmCross.Commands;
 using MyLog.Core.Models.Navigation;
 using MyLog.Core.Services;
 using MyLog.Core.Services.Abstract;
@@ -12,7 +12,7 @@ namespace MyLog.Core.ViewModels.Pages
 {
     public class SettingsViewModel : BasePageViewModel
     {
-        private NavigatorType _navigator = Mvx.Resolve<NavigatorService>() is GoogleMapsService
+        private NavigatorType _navigator = Mvx.IoCProvider.Resolve<NavigatorService>() is GoogleMapsService
             ? NavigatorType.Google
             : NavigatorType.Yandex;
 
@@ -28,15 +28,15 @@ namespace MyLog.Core.ViewModels.Pages
                     switch (_navigator)
                     {
                         case NavigatorType.Google:
-                            Mvx.RegisterType<NavigatorService, GoogleMapsService>();
+                            Mvx.IoCProvider.RegisterType<NavigatorService, GoogleMapsService>();
                             break;
                         case NavigatorType.Yandex:
-                            Mvx.RegisterType<NavigatorService, YandexNavigatorService>();
+                            Mvx.IoCProvider.RegisterType<NavigatorService, YandexNavigatorService>();
                             break;
                     }
 
                     RaisePropertyChanged(() => NavigatorName);
-                    Mvx.Resolve<NavigatorService>().StartNavigation(new RouteDefinition {
+                    Mvx.IoCProvider.Resolve<NavigatorService>().StartNavigation(new RouteDefinition {
                         Destination = new Coordinates { Latitude = 53.834381, Longitude = 27.60872 },
                         Waypoints = {
                             Coordinates.Parse("53.931073, 27.576931"),

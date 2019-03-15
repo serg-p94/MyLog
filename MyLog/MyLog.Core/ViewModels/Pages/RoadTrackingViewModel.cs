@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
+using MvvmCross;
+using MvvmCross.Commands;
 using MyLog.Core.Enums;
 using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Abstract;
@@ -12,7 +12,7 @@ namespace MyLog.Core.ViewModels.Pages
     {
         private TrackingState _state;
 
-        protected RoadTrackingService RoadTrackingService { get; } = Mvx.Resolve<RoadTrackingService>();
+        protected RoadTrackingService RoadTrackingService { get; } = Mvx.IoCProvider.Resolve<RoadTrackingService>();
 
         public override string Title { get; } = "Road Tracking";
 

@@ -3,11 +3,11 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Android.Content;
+using MvvmCross;
+using MvvmCross.Base;
 using MvvmCross.Droid.Support.V7.AppCompat;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Core;
-using MvvmCross.Platform.Droid.Platform;
-using MvvmCross.Platform.Droid.Views;
+using MvvmCross.Platforms.Android;
+using MvvmCross.Platforms.Android.Views.Base;
 using MyLog.Core.Services.Abstract;
 using Uri = Android.Net.Uri;
 
@@ -17,7 +17,7 @@ namespace MyLog.Droid.Services
     {
         private const int FileSelectedRequestCode = 1235;
 
-        private static MvxAppCompatActivity CurrentActivity => (MvxAppCompatActivity) Mvx.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
+        private static MvxAppCompatActivity CurrentActivity => (MvxAppCompatActivity) Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
 
         private TaskCompletionSource<Stream> _streamWaitingTaskCompletionSource;
 

@@ -2,8 +2,8 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using MvvmCross.Droid.Views.Attributes;
-using MvvmCross.Droid.Views.Fragments;
+using MvvmCross.Platforms.Android.Presenters.Attributes;
+using MvvmCross.Platforms.Android.Views.Fragments;
 using MyLog.Core.ViewModels.Dialogs;
 
 namespace MyLog.Droid.Views.Dialogs

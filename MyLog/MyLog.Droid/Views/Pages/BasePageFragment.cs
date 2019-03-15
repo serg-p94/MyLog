@@ -1,9 +1,9 @@
 ﻿using Android.OS;
 using Android.Views;
 using MvvmCross.Binding.BindingContext;
-using MvvmCross.Binding.Droid.BindingContext;
-using MvvmCross.Droid.Views;
-using MvvmCross.Droid.Views.Fragments;
+using MvvmCross.Platforms.Android.Binding.BindingContext;
+using MvvmCross.Platforms.Android.Views;
+using MvvmCross.Platforms.Android.Views.Fragments;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Droid.Activities;
 using MyLog.Droid.Navigation;
@@ -42,7 +42,6 @@ namespace MyLog.Droid.Views.Pages
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-
             var bindingSet = this.CreateBindingSet<BasePageFragment<TViewModel>, TViewModel>();
             AddBindings(bindingSet);
             bindingSet.Apply();

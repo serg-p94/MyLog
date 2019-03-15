@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MvvmCross.Plugins.Location;
+﻿using System.Collections.Generic;
 using MyLog.Core.Models.RoadTracking;
 using MyLog.Core.ViewModels.Abstract;
 

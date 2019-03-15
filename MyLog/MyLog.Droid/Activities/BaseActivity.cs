@@ -1,7 +1,7 @@
 ﻿using Android.OS;
 using Android.Runtime;
-using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Support.V7.AppCompat;
+using MvvmCross.ViewModels;
 using Plugin.Permissions;
 
 namespace MyLog.Droid.Activities

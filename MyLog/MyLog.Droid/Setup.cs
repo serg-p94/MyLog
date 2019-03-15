@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Android.Content;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Droid.Platform;
-using MvvmCross.Platform;
+using MvvmCross;
+using MvvmCross.Platforms.Android.Core;
+using MvvmCross.ViewModels;
 using MyLog.Core;
 using MyLog.Core.Services;
 using MyLog.Core.Services.Abstract;
@@ -12,16 +11,15 @@ namespace MyLog.Droid
 {
     public class Setup : MvxAndroidSetup
     {
-        public Setup(Context applicationContext) : base(applicationContext) { }
-
         protected override void InitializePlatformServices()
         {
             base.InitializePlatformServices();
-            Mvx.RegisterSingleton((IFileInputService) new FileInputService());
-            Mvx.RegisterSingleton((IStorageService) new StorageService());
 
-            Mvx.RegisterType<IWebService, WebService>();
-            Mvx.RegisterType<NavigatorService, GoogleMapsService>();
+            Mvx.IoCProvider.RegisterSingleton((IFileInputService) new FileInputService());
+            Mvx.IoCProvider.RegisterSingleton((IStorageService) new StorageService());
+
+            Mvx.IoCProvider.RegisterType<IWebService, WebService>();
+            Mvx.IoCProvider.RegisterType<NavigatorService, GoogleMapsService>();
         }
 
         protected override IMvxApplication CreateApp() => new App();

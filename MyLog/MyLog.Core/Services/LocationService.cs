@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MvvmCross.Plugins.Location;
-using MvvmCross.Plugins.Messenger;
+using MvvmCross.Plugin.Location;
+using MvvmCross.Plugin.Messenger;
 using MyLog.Core.Helpers;
 using MyLog.Core.Messenger;
 using Plugin.Permissions;
