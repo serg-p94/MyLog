@@ -2,8 +2,8 @@
 using Android.Content;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
-using Android.Gms.Drive;
 using Android.OS;
+using MyLog.Droid.Activities.Decorators;
 
 namespace MyLog.Droid.Views.Activities.Decorators
 {
@@ -16,7 +16,7 @@ namespace MyLog.Droid.Views.Activities.Decorators
 
         private GoogleApiClient GoogleApiClient => _googleApiClient =
             _googleApiClient ?? new GoogleApiClient.Builder(_activity)
-                .AddApi(DriveClass.API)
+                //.AddApi(DriveClass.API)
                 //.AddScope(DriveClass.ScopeFile)
                 .AddConnectionCallbacks(OnConnected, OnConnectionSuspended)
                 .AddOnConnectionFailedListener(OnConnectionFailed)

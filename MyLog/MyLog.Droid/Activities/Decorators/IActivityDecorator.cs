@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 
-namespace MyLog.Droid.Views.Activities.Decorators
+namespace MyLog.Droid.Activities.Decorators
 {
     public interface IActivityDecorator
     {
