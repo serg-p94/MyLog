@@ -15,7 +15,7 @@ namespace MyLog.Core
             base.Initialize();
             ConfigCulture();
             RegisterServices();
-            RegisterAppStart<SettingsViewModel>();
+            RegisterAppStart<RoutesCatalogViewModel>();
         }
 
         private void RegisterServices()

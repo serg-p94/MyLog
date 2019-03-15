@@ -36,9 +36,13 @@ namespace MyLog.Core.ViewModels
         {
             MenuItems = new List<SlideMenuItemViewModel> {
                 new SlideMenuItemViewModel {
+                    Title = "Routes Catalog",
+                    Command = new MvxAsyncCommand(async () => await NavigationService.Navigate<RoutesCatalogViewModel>())
+                },
+                /*new SlideMenuItemViewModel {
                     Title = "Road Tracking",
                     Command = new MvxAsyncCommand(async () => await NavigationService.Navigate<RoadTrackingViewModel>())
-                },
+                },*/
                 new SlideMenuItemViewModel {
                     Title = "Settings",
                     Command = new MvxAsyncCommand(async () => await NavigationService.Navigate<SettingsViewModel>())

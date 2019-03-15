@@ -194,6 +194,7 @@
     <Compile Include="Custom\Converters\TrackingStateIconIdConverter.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Navigation\NavigationType.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Services\FileInputService.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Services\WebService.cs" />
@@ -201,12 +202,12 @@
     <Compile Include="Views\Dialogs\ListDialogView.cs" />
     <Compile Include="Views\Pages\BaseLogFragment.cs" />
     <Compile Include="Activities\SlideMenuHostActivity.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\Pages\BasePageFragment.cs" />
     <Compile Include="Views\Pages\RoadTrackingView.cs" />
+    <Compile Include="Views\Pages\RoutesCatalogView.cs" />
     <Compile Include="Views\Pages\SettingsView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,10 +236,7 @@
     <AndroidResource Include="Resources\layout\AddRecordView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\item_way.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\RoadTrackingReportView.axml">
+    <AndroidResource Include="Resources\layout\item_route.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_log.axml">
@@ -323,6 +321,15 @@
     <AndroidResource Include="Resources\layout\SettingsView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RoutesCatalogView.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\item_way.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
