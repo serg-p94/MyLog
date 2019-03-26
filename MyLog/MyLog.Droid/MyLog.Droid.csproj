@@ -315,7 +315,9 @@
     <AndroidResource Include="Resources\drawable\ic_checked_circle.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FodyWeavers.xml" />
+    <None Include="FodyWeavers.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\SettingsView.axml">
@@ -399,4 +401,7 @@
 		<Target Name="AfterBuild">
 		</Target>
 	-->
+  <PropertyGroup>
+    <SolutionDir>..\</SolutionDir>
+  </PropertyGroup>
 </Project>
