@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using CsvHelper.Configuration.Attributes;
 using MyLog.Core.Models.Navigation;
 
 namespace MyLog.Core.Csv.Models
 {
     public class RouteDefinitionCsvModel
     {
+        [Name("Название")]
         public string Name { get; set; }
 
-        public Coordinates? Origin { get; set; }
+        [Name("Выезд из первой точки")] 
+        public string StartFromFirstPoint { get; set; }
 
-        public Coordinates Destination { get; set; }
-
+        [Name("Путевые точки")]
         public IList<Coordinates> Waypoints { get; } = new List<Coordinates>();
-
     }
 }

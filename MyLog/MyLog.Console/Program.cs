@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using MyLog.Core.Csv;
-using MyLog.Core.Models.Navigation;
+using MyLog.Core.Csv.Models;
 
 namespace MyLog.Console
 {
@@ -12,22 +8,21 @@ namespace MyLog.Console
     {
         static void Main(string[] args)
         {
-            var s = CsvParser.ToCsv(new RouteDefinition {
-                Name = "Some name",
-                Origin = Coordinates.Parse("0.123, 0.456"),
-                Destination = Coordinates.Parse("0.111, 0.222"),
-                Waypoints = {
-                    Coordinates.Parse("0.001, 0.002"),
-                    Coordinates.Parse("0.011, 0.022")
-                }
-            });
+            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
-            var r = CsvParser.Parse<RouteDefinition>(s);
+            var r = CsvParser.ParseComplex<RouteDefinitionCsvModel>(CsvData);
 
-            System.Console.WriteLine(s);
+            System.Console.WriteLine(r);
         }
 
-        static string CsvData = "Name,Origin,Destination"+Environment.NewLine+
-                                "N1,\"0.111000,0.111001\""
+        private static string CsvData = @"Название,Выезд из первой точки
+Тестовый маршрут,
+,
+Путевые точки,
+""53.675735, 27.222174"",
+""53.951938, 27.983312"",
+""54.185150, 27.816942"",
+""54.118319, 26.596178"",
+""53.904024, 27.586986"",";
     }
 }

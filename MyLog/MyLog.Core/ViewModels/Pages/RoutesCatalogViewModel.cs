@@ -15,11 +15,11 @@ namespace MyLog.Core.ViewModels.Pages
         public MvxObservableCollection<RouteDefinition> Routes { get; } =
             new MvxObservableCollection<RouteDefinition>();
 
-        public ICommand AddRouteCommand => new MvxCommand(() => {
+        /*public ICommand AddRouteCommand => new MvxCommand(() => {
             CsvParser.Parse<Coordinates>(@"Latitude, Longitude
 ""53.931073"", ""27.576931""
 ""53.907636"", ""27.433679""");
-        });
+        });*/
 
         private RouteDefinition MockRoute => new RouteDefinition {
             Name = $"Test route #{Routes.Count + 1}",
