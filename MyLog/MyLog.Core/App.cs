@@ -26,7 +26,7 @@ namespace MyLog.Core
 
         private void ConfigCulture()
         {
-            var culture = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+            var culture = (CultureInfo)CultureInfo.InvariantCulture.Clone();
             culture.NumberFormat.NumberDecimalSeparator = ".";
             CultureInfo.DefaultThreadCurrentCulture = culture;
         }
