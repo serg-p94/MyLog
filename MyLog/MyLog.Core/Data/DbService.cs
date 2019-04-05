@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-
-using Common.DB.Interfaces;
-
+using MyLog.Core.Data.Interfaces;
 using Realms;
 
-namespace Common.DB.Abstract
+namespace MyLog.Core.Data
 {
-    public abstract class BaseDbService
+    internal class DbService : IDbService
     {
-        protected IRealmManager RealmManager { get; }
+        protected readonly IRealmManager RealmManager;
 
-        protected BaseDbService(IRealmManager realmManager)
+        public DbService(IRealmManager realmManager)
         {
             RealmManager = realmManager;
         }
 
-        protected TData GetData<TData>(Func<Realm, TData> select, [CallerMemberName] string caller = null)
+        public TData GetData<TData>(Func<Realm, TData> select, [CallerMemberName] string caller = null)
         {
             try
             {
@@ -31,7 +29,7 @@ namespace Common.DB.Abstract
             }
         }
 
-        protected void EditData(Action<Realm> action, [CallerMemberName] string caller = null)
+        public void EditData(Action<Realm> action, [CallerMemberName] string caller = null)
         {
             try
             {

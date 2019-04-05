@@ -1,6 +1,6 @@
 ﻿using Realms;
 
-namespace Common.DB.Interfaces
+namespace MyLog.Core.Data.Interfaces
 {
     public interface IRealmManager
     {
