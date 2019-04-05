@@ -6,6 +6,8 @@ using MvvmCross.ViewModels;
 using MyLog.Core.Csv;
 using MyLog.Core.Data;
 using MyLog.Core.Data.Interfaces;
+using MyLog.Core.Managers;
+using MyLog.Core.Managers.Interfaces;
 using MyLog.Core.Services;
 using MyLog.Core.ViewModels.Pages;
 
@@ -26,6 +28,7 @@ namespace MyLog.Core
             Mvx.IoCProvider.RegisterSingleton(new LocationService(Mvx.IoCProvider.Resolve<IMvxLocationWatcher>(), Mvx.IoCProvider.Resolve<IMvxMessenger>()));
             Mvx.IoCProvider.RegisterSingleton(new RoadTrackingService());
             Mvx.IoCProvider.RegisterType<ICsvParser, CsvParser>();
+            Mvx.IoCProvider.RegisterType<IRoutesManager, RoutesManager>();
             Mvx.IoCProvider.RegisterType<IDbService, DbService>();
             Mvx.IoCProvider.RegisterType<IRealmManager, RealmManager>();
         }

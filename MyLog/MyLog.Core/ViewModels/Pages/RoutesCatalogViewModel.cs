@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MvvmCross;
 using MvvmCross.Commands;
-using MvvmCross.ViewModels;
 using MyLog.Core.Data;
+using MyLog.Core.Data.Interfaces;
 using MyLog.Core.Data.RealmModels;
-using MyLog.Core.Managers;
 using MyLog.Core.Managers.Interfaces;
 using MyLog.Core.ViewModels.Abstract;
 
@@ -20,8 +16,10 @@ namespace MyLog.Core.ViewModels.Pages
 
         public override string Title => "Routes";
 
-        public ObservableCollection<RouteItemViewModel> Routes { get; set; }
-            
+        public ObservableCollection<RouteItemViewModel> Routes =>
+            new RealmObservableCollection<RouteDbModel, RouteItemViewModel>(RoutesManager.StoredRoutes,
+                db => new RouteItemViewModel { Model = db.Definition });
+
 
         public ICommand AddRouteCommand => new MvxAsyncCommand(async () => {
             await RoutesManager.ImportRoute();
@@ -29,7 +27,10 @@ namespace MyLog.Core.ViewModels.Pages
 
         public RoutesCatalogViewModel()
         {
-            var r = RoutesManager.StoredRoutes;
+            var r = Mvx.IoCProvider.Resolve<IRealmManager>().Realm;
+
+//            var rr = RoutesManager.StoredRoutes;
+//
 //            Task.Run(() => {
 //                Routes = new RealmObservableCollection<RouteDbModel, RouteItemViewModel>(RoutesManager.StoredRoutes,
 //                    db => new RouteItemViewModel { Model = db.Definition });
