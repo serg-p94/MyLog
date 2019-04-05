@@ -4,6 +4,7 @@ using Realms;
 
 namespace MyLog.Core.Data.RealmModels
 {
+    [MapTo("Routes")]
     public class RouteDbModel : RealmObject
     {
         [MapTo("Definition")]

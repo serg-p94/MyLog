@@ -12,6 +12,9 @@ namespace MyLog.Core.Csv.Models
         [Name("Выезд из первой точки")] 
         public string StartFromFirstPoint { get; set; }
 
+        [Ignore]
+        public bool IsStartFromFirstPoint => !string.IsNullOrWhiteSpace(StartFromFirstPoint);
+
         [Name("Путевые точки")]
         public IList<Coordinates> Waypoints { get; } = new List<Coordinates>();
     }

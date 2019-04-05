@@ -10,7 +10,7 @@ using MyLog.Core.Models.Navigation;
 
 namespace MyLog.Core.Csv
 {
-    public static class CsvParser
+    public class CsvParser : ICsvParser
     {
         public static TModel Parse<TModel>(string data)
         {
@@ -52,7 +52,7 @@ namespace MyLog.Core.Csv
             }
         }
 
-        public static TModel ParseComplex<TModel>(string complexData)
+        public TModel ParseComplex<TModel>(string complexData)
         {
             using (var stringReader = new StringReader(complexData))
             using (var csvReader = new CsvReader(stringReader))
