@@ -5,11 +5,17 @@ namespace MyLog.Core.Data
 {
     internal class RealmManager : IRealmManager
     {
-        public Realm Realm => Realm.GetInstance(Configuration);
-
         private const ulong SchemaVersion = 1;
 
-        private static RealmConfigurationBase Configuration { get; } = new RealmConfiguration {
+        public RealmManager()
+        {
+            // This is necessary to initialize Realm (perform migration) during application start instead of first DB request
+            var ignored = Realm;
+        }
+
+        public Realm Realm => Realm.GetInstance(Configuration);
+
+        private RealmConfigurationBase Configuration { get; } = new RealmConfiguration {
             SchemaVersion = SchemaVersion,
             MigrationCallback = MigrationCallback,
 #if DEBUG
