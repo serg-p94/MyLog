@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
 using MyLog.Core.Csv;
 using MyLog.Core.Csv.Models;
+using MyLog.Core.Data;
 using MyLog.Core.Data.Interfaces;
 using MyLog.Core.Data.RealmModels;
 using MyLog.Core.Managers.Interfaces;
@@ -27,22 +26,13 @@ namespace MyLog.Core.Managers
             DbService = dbService;
         }
 
-        public IRealmCollection<RouteDbModel> StoredRoutes {
-            get
-            {
-                try
-                {
-                    var d = DbService.GetData(r => r.All<RouteDbModel>());
-                    return DbService.GetData(r => r.All<RouteDbModel>().AsRealmCollection());
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
+        public ObservableCollection<TModel> GetRoutesCollection<TModel>(Func<RouteDefinition, TModel> convert)
+        {
+            var realmCollection = DbService.GetData(r => r.All<RouteDbModel>().AsRealmCollection());
+            return new RealmObservableCollection<RouteDbModel, TModel>(realmCollection, db => convert(db.Definition));
         }
 
-        public async Task ImportRoute()
+        public async Task ImportRouteAsync()
         {
             var csvData = await FileInputService.ImportTextAsync();
             var csvModel = CsvParser.ParseComplex<RouteDefinitionCsvModel>(csvData);

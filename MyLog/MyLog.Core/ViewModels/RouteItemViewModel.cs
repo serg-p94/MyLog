@@ -16,15 +16,17 @@ namespace MyLog.Core.ViewModels
 
         protected NavigatorService NavigatorService { get; } = Mvx.IoCProvider.Resolve<NavigatorService>();
 
-        // TODO: remove
-        public RouteDefinition Model
+        private RouteDefinition Model
         {
-            private get => _model;
-            set => SetProperty(ref _model, value);
+            get => _model;
+            set => _model = value;
         }
 
         public string Name => Model.Name;
 
         public ICommand Command => new MvxCommand(() => NavigatorService.StartNavigation(Model));
+
+        public static RouteItemViewModel FromModel(RouteDefinition model)
+            => new RouteItemViewModel { Model = model };
     }
 }

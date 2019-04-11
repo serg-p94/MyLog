@@ -1,12 +1,13 @@
-﻿using System.Threading.Tasks;
-using MyLog.Core.Data.RealmModels;
-using Realms;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using MyLog.Core.Models.Navigation;
 
 namespace MyLog.Core.Managers.Interfaces
 {
     public interface IRoutesManager
     {
-        IRealmCollection<RouteDbModel> StoredRoutes { get; }
-        Task ImportRoute();
+        ObservableCollection<TModel> GetRoutesCollection<TModel>(Func<RouteDefinition, TModel> convert);
+        Task ImportRouteAsync();
     }
 }

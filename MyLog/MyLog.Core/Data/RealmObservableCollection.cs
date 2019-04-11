@@ -7,7 +7,7 @@ using Realms;
 
 namespace MyLog.Core.Data
 {
-    public class RealmObservableCollection<TRealmObject, TObject> : ObservableCollection<TObject>, IDisposable
+    internal class RealmObservableCollection<TRealmObject, TObject> : ObservableCollection<TObject>
         where TRealmObject : RealmObject
     {
         private readonly IRealmCollection<TRealmObject> _realmCollection;
@@ -52,11 +52,6 @@ namespace MyLog.Core.Data
                     throw new NotImplementedException();
                     break;
             }
-        }
-
-        public void Dispose()
-        {
-            _realmCollection.CollectionChanged -= ChangesHandler;
         }
     }
 }
