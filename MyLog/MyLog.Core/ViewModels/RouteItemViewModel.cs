@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
@@ -12,9 +9,14 @@ namespace MyLog.Core.ViewModels
 {
     public class RouteItemViewModel : MvxNotifyPropertyChanged
     {
+        protected INavigatorService NavigatorService;
+
         private RouteDefinition _model;
 
-        protected NavigatorService NavigatorService { get; } = Mvx.IoCProvider.Resolve<NavigatorService>();
+        public RouteItemViewModel(INavigatorService navigatorService)
+        {
+            NavigatorService = navigatorService;
+        }
 
         private RouteDefinition Model
         {
@@ -27,6 +29,6 @@ namespace MyLog.Core.ViewModels
         public ICommand Command => new MvxCommand(() => NavigatorService.StartNavigation(Model));
 
         public static RouteItemViewModel FromModel(RouteDefinition model)
-            => new RouteItemViewModel { Model = model };
+            => new RouteItemViewModel(Mvx.IoCProvider.Resolve<INavigatorService>()) { Model = model };
     }
 }

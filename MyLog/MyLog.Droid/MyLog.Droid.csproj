@@ -99,6 +99,12 @@
     <Reference Include="Plugin.Permissions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Plugin.Permissions.3.0.0.12\lib\monoandroid71\Plugin.Permissions.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\MonoAndroid10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\MonoAndroid10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Realm, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Realm.Database.3.4.0\lib\netstandard1.4\Realm.dll</HintPath>
     </Reference>
@@ -192,6 +198,7 @@
     <Compile Include="Custom\Controls\MvxRecyclerViewX.cs" />
     <Compile Include="Custom\Converters\TimeStringConverter.cs" />
     <Compile Include="Custom\Converters\TrackingStateIconIdConverter.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Navigation\NavigationType.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

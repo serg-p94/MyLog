@@ -5,7 +5,7 @@ using MyLog.Core.Services.Abstract;
 
 namespace MyLog.Core.Services
 {
-    public class YandexNavigatorService : NavigatorService
+    internal class YandexNavigatorService : NavigatorService
     {
         public YandexNavigatorService(IWebService webService) : base(webService) { }
 

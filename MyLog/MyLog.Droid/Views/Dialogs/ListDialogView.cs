@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -14,7 +15,19 @@ namespace MyLog.Droid.Views.Dialogs
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             var builder = new AlertDialog.Builder(Context);
-            builder.SetSingleChoiceItems(ViewModel.Options.Select(o => o.ToString()).ToArray(), 0, ItemSelected);
+
+            if (ViewModel.IsSingleChoice)
+            {
+                var selectedItem = ViewModel.Options.FirstOrDefault(item => item.IsSelected);
+                builder.SetSingleChoiceItems(ViewModel.Options.Select(o => o.ToString()).ToArray(),
+                    ViewModel.Options.IndexOf(selectedItem), ItemSelected);
+            }
+            else
+            {
+                builder.SetMultiChoiceItems(ViewModel.Options.Select(o => o.ToString()).ToArray(),
+                    ViewModel.Options.Select(o => o.IsSelected).ToArray(),
+                    (EventHandler<DialogMultiChoiceClickEventArgs>)null);
+            }
 
             return builder.Create();
         }

@@ -2,7 +2,7 @@
 
 namespace MyLog.Core.Services.Abstract
 {
-    public abstract class NavigatorService
+    internal abstract class NavigatorService : INavigatorService
     {
         protected IWebService WebService { get; }
 

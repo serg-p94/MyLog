@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
-using MvvmCross;
 using MvvmCross.Commands;
-using MyLog.Core.Models.Navigation;
-using MyLog.Core.Services;
-using MyLog.Core.Services.Abstract;
+using MyLog.Core.Enums;
+using MyLog.Core.Extensions;
+using MyLog.Core.Managers.Interfaces;
 using MyLog.Core.ViewModels.Abstract;
 using MyLog.Core.ViewModels.Dialogs;
 
@@ -12,60 +12,45 @@ namespace MyLog.Core.ViewModels.Pages
 {
     public class SettingsViewModel : BasePageViewModel
     {
-        private NavigatorType _navigator = Mvx.IoCProvider.Resolve<NavigatorService>() is GoogleMapsService
-            ? NavigatorType.Google
-            : NavigatorType.Yandex;
+        protected ISettingsManager SettingsManager;
+
+        private NavigatorType _navigatorType;
+
+        public SettingsViewModel(ISettingsManager settingsManager)
+        {
+            SettingsManager = settingsManager;
+            NavigatorType = SettingsManager.GetValue<NavigatorType>(SettingType.NavigatorType.ToIntString());
+        }
 
         public override string Title => "Settings";
 
-        private NavigatorType Navigator
+        private NavigatorType NavigatorType
         {
-            get => _navigator;
+            get => _navigatorType;
             set
             {
-                if (SetProperty(ref _navigator, value))
+                if (SetProperty(ref _navigatorType, value))
                 {
-                    switch (_navigator)
-                    {
-                        case NavigatorType.Google:
-                            Mvx.IoCProvider.RegisterType<NavigatorService, GoogleMapsService>();
-                            break;
-                        case NavigatorType.Yandex:
-                            Mvx.IoCProvider.RegisterType<NavigatorService, YandexNavigatorService>();
-                            break;
-                    }
-
+                    SettingsManager.SetValue(SettingType.NavigatorType.ToIntString(), value);
                     RaisePropertyChanged(() => NavigatorName);
-                    Mvx.IoCProvider.Resolve<NavigatorService>().StartNavigation(new RouteDefinition {
-                        Destination = new Coordinates { Latitude = 53.834381, Longitude = 27.60872 },
-                        Waypoints = {
-                            Coordinates.Parse("53.931073, 27.576931"),
-                            Coordinates.Parse("53.907636, 27.433679")
-                        }
-                    });
                 }
             }
         }
 
-        public string NavigatorName => Navigator.ToString();
+        public string NavigatorName => NavigatorType.ToString();
 
         public ICommand SelectNavigatorCommand => new MvxCommand(async () => {
             var selectedResult = await NavigationService.Navigate<ListDialogViewModel,
                 IEnumerable<DialogOptionViewModel>, DialogOptionViewModel>(
-                new[] {
-                    new DialogOptionViewModel<NavigatorType> { Data = NavigatorType.Google },
-                    new DialogOptionViewModel<NavigatorType> { Data = NavigatorType.Yandex }
-                });
+                new[] { NavigatorType.Google, NavigatorType.Yandex }.Select(t =>
+                    new DialogOptionViewModel<NavigatorType> {
+                        Data = t, IsSelected = NavigatorType == t
+                    }));
 
             if (selectedResult != null)
             {
-                Navigator = ((DialogOptionViewModel<NavigatorType>)selectedResult).Data;
+                NavigatorType = ((DialogOptionViewModel<NavigatorType>)selectedResult).Data;
             }
         });
-
-        private enum NavigatorType
-        {
-            Google, Yandex
-        }
     }
 }

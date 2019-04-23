@@ -13,7 +13,7 @@ using Realms;
 
 namespace MyLog.Core.Managers
 {
-    public class RoutesManager : IRoutesManager
+    internal class RoutesManager : IRoutesManager
     {
         protected readonly ICsvParser CsvParser;
         protected readonly IFileInputService FileInputService;

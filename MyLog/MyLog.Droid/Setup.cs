@@ -3,7 +3,6 @@ using MvvmCross;
 using MvvmCross.Platforms.Android.Core;
 using MvvmCross.ViewModels;
 using MyLog.Core;
-using MyLog.Core.Services;
 using MyLog.Core.Services.Abstract;
 using MyLog.Droid.Services;
 
@@ -19,7 +18,6 @@ namespace MyLog.Droid
             Mvx.IoCProvider.RegisterSingleton((IStorageService) new StorageService());
 
             Mvx.IoCProvider.RegisterType<IWebService, WebService>();
-            Mvx.IoCProvider.RegisterType<NavigatorService, GoogleMapsService>();
         }
 
         protected override IMvxApplication CreateApp() => new App();

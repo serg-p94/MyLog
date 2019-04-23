@@ -5,9 +5,9 @@ using MyLog.Core.Services.Abstract;
 
 namespace MyLog.Core.Services
 {
-    public class GoogleMapsService : NavigatorService
+    internal class GoogleNavigatorService : NavigatorService
     {
-        public GoogleMapsService(IWebService webService) : base(webService) { }
+        public GoogleNavigatorService(IWebService webService) : base(webService) { }
 
         protected override string GetRouteUriString(RouteDefinition route)
         {
