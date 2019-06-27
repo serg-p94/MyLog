@@ -12,9 +12,9 @@
     <PackageReference Include="Microsoft.AppCenter" Version="2.1.1" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.1.1" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.1.1" />
-    <PackageReference Include="MvvmCross" Version="6.3.1" />
-    <PackageReference Include="MvvmCross.Plugin.Location" Version="6.3.1" />
-    <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.3.1" />
+    <PackageReference Include="MvvmCross" Version="6.2.3" />
+    <PackageReference Include="MvvmCross.Plugin.Location" Version="6.2.3" />
+    <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.2.3" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="Realm" Version="3.4.0" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
