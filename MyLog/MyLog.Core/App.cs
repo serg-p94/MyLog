@@ -30,6 +30,7 @@ namespace MyLog.Core
 
             Mvx.IoCProvider.RegisterType<ISettingsManager, SettingsManager>();
             Mvx.IoCProvider.RegisterType<ICsvParser, CsvParser>();
+            Mvx.IoCProvider.RegisterType<IAnalyticsService, AnalyticsService>();
             /*Mvx.IoCProvider.RegisterSingleton(new LocationService(Mvx.IoCProvider.Resolve<IMvxLocationWatcher>(), Mvx.IoCProvider.Resolve<IMvxMessenger>()));
             Mvx.IoCProvider.RegisterSingleton(new RoadTrackingService());*/
 

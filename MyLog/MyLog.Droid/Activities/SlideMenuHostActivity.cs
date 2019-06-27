@@ -6,8 +6,10 @@ using Android.Support.V4.View;
 using Android.Support.V4.Widget;
 using Android.Views;
 using Android.Widget;
+using MvvmCross;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Binding.Views;
+using MyLog.Core.Services.Abstract;
 using MyLog.Core.ViewModels;
 using MyLog.Droid.Navigation;
 using MyLog.Droid.Views.Pages;
@@ -18,6 +20,8 @@ namespace MyLog.Droid.Activities
     [Activity(Label = "SlideMenuHostActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme")]
     public class SlideMenuHostActivity : BaseActivity<SlideMenuHostViewModel>
     {
+        private const string AppCenterId = "2ce554e0-4ef7-414c-adc3-2db84458f70a";
+
         private NavigationType _navigationType;
 
         protected override int LayoutId => Resource.Layout.SlideMenuHostActivity;
@@ -81,6 +85,8 @@ namespace MyLog.Droid.Activities
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            Mvx.IoCProvider.Resolve<IAnalyticsService>().Initialize(AppCenterId);
 
             DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.DrawerLayout);
             FragmentContainer = FindViewById<FrameLayout>(Resource.Id.FragmentContainer);
