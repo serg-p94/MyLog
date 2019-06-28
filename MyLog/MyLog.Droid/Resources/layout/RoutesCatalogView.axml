@@ -15,7 +15,7 @@
       android:layout_height="match_parent"
       android:divider="@null"
       app:MvxItemTemplate="@layout/item_route"
-      app:MvxBind="ItemsSource Routes;" />
+      app:MvxBind="ItemsSource Routes; ItemClick ItemClickCommand; ItemLongClick ItemLongClickCommand;" />
     <android.support.design.widget.FloatingActionButton
       android:id="@+id/fab"
       android:layout_width="wrap_content"

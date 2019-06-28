@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MyLog.Core.Csv.Models;
 
 namespace MyLog.Core.Models.Navigation
 {
-    public class RouteDefinition
+    public class RouteDefinition : IEquatable<RouteDefinition>
     {
         public string Name { get; set; }
 
@@ -29,6 +30,21 @@ namespace MyLog.Core.Models.Navigation
             routeModel.Waypoints.Remove(routeModel.Destination);
 
             return routeModel;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as RouteDefinition);
+        }
+
+        // TODO: fix
+        public bool Equals(RouteDefinition other)
+        {
+            return other != null &&
+                   Name == other.Name &&
+                   EqualityComparer<Coordinates?>.Default.Equals(Origin, other.Origin) &&
+                   EqualityComparer<Coordinates>.Default.Equals(Destination, other.Destination)/* &&
+                   EqualityComparer<List<Coordinates>>.Default.Equals(Waypoints, other.Waypoints)*/;
         }
     }
 }

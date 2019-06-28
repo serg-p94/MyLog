@@ -33,5 +33,6 @@
     <item name="cardElevation">1dp</item>
     <item name="cardCornerRadius">5dp</item>
     <item name="contentPadding">10dp</item>
+    <item name="cardBackgroundColor">@color/selectable_card</item>
   </style>
 </resources>

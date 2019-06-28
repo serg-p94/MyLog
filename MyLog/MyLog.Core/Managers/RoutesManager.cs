@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using MyLog.Core.Csv;
 using MyLog.Core.Csv.Models;
 using MyLog.Core.Data;
 using MyLog.Core.Data.Interfaces;
 using MyLog.Core.Data.RealmModels;
+using MyLog.Core.Extensions;
 using MyLog.Core.Managers.Interfaces;
 using MyLog.Core.Models.Navigation;
 using MyLog.Core.Services.Abstract;
@@ -39,5 +42,12 @@ namespace MyLog.Core.Managers
             var routeModel = RouteDefinition.FromCsvModel(csvModel);
             DbService.EditData(r => r.Add(new RouteDbModel { Definition = routeModel }));
         }
+
+        // TODO: Optimize
+        public void Remove(IList<RouteDefinition> routes) => DbService.EditData(realm => {
+            var allDbItems = realm.All<RouteDbModel>().ToList();
+            var range = allDbItems.Where(db => routes.Contains(db.Definition)).ToList();
+            range.ForEach(realm.Remove);
+        });
     }
 }
