@@ -18,7 +18,7 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
@@ -217,6 +217,7 @@
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\Decorators\GoogleServicesActivityDecorator.cs" />
     <Compile Include="Activities\Decorators\IActivityDecorator.cs" />
+    <Compile Include="Custom\Controls\CardViewX.cs" />
     <Compile Include="Custom\Controls\MvxRecyclerViewX.cs" />
     <Compile Include="Custom\Converters\TimeStringConverter.cs" />
     <Compile Include="Custom\Converters\TrackingStateIconIdConverter.cs" />
@@ -365,9 +366,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_delete.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\color\selectable_card.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

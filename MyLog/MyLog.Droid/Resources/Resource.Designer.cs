@@ -5747,20 +5747,17 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f090040
 			public const int secondary_text_disabled_material_light = 2131296320;
 			
-			// aapt resource value: 0x7f090077
-			public const int selectable_card = 2131296375;
-			
 			// aapt resource value: 0x7f090041
 			public const int switch_thumb_disabled_material_dark = 2131296321;
 			
 			// aapt resource value: 0x7f090042
 			public const int switch_thumb_disabled_material_light = 2131296322;
 			
-			// aapt resource value: 0x7f090078
-			public const int switch_thumb_material_dark = 2131296376;
+			// aapt resource value: 0x7f090077
+			public const int switch_thumb_material_dark = 2131296375;
 			
-			// aapt resource value: 0x7f090079
-			public const int switch_thumb_material_light = 2131296377;
+			// aapt resource value: 0x7f090078
+			public const int switch_thumb_material_light = 2131296376;
 			
 			// aapt resource value: 0x7f090043
 			public const int switch_thumb_normal_material_dark = 2131296323;
