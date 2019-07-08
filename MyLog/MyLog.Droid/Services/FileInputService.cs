@@ -59,10 +59,15 @@ namespace MyLog.Droid.Services
 
         private void OnActivityResult(object sender, MvxValueEventArgs<MvxActivityResultParameters> args)
         {
-            if (args.Value.RequestCode == FileSelectedRequestCode)
+            switch (args.Value.RequestCode)
             {
-                var inputStream = OpenStreamForUri(args.Value.Data.Data);
-                _streamWaitingTaskCompletionSource.SetResult(inputStream);
+                case FileSelectedRequestCode:
+                    if (args.Value.Data != null)
+                    {
+                        var inputStream = OpenStreamForUri(args.Value.Data.Data);
+                        _streamWaitingTaskCompletionSource.SetResult(inputStream);
+                    }
+                    break;
             }
         }
 
