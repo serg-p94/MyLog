@@ -10,20 +10,20 @@ namespace MyLog.Droid.Extensions
         public static Task<int> StartActionModeAsync(this AppCompatActivity appCompatActivity, int menuResId)
         {
             var taskCompletionSource = new TaskCompletionSource<int>();
-            var actionModeCallback = new ActionModeCallback(menuResId, taskCompletionSource);
+            var actionModeCallback = new SupportActionModeCallback(menuResId, taskCompletionSource);
             appCompatActivity.StartSupportActionMode(actionModeCallback);
 
             return taskCompletionSource.Task;
         }
 
-        private class ActionModeCallback : Java.Lang.Object, ActionMode.ICallback
+        private class SupportActionModeCallback : Java.Lang.Object, ActionMode.ICallback
         {
             private readonly int _menuRes;
             private readonly TaskCompletionSource<int> _taskCompletionSource;
 
             private int _selectedItemId;
 
-            public ActionModeCallback(int menuRes, TaskCompletionSource<int> taskCompletionSource)
+            public SupportActionModeCallback(int menuRes, TaskCompletionSource<int> taskCompletionSource)
             {
                 _menuRes = menuRes;
                 _taskCompletionSource = taskCompletionSource;

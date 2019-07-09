@@ -7,5 +7,6 @@
   app:MvxBind="Selected IsSelected;">
   <TextView
     style="@style/Text.Accent"
+    android:layout_gravity="center_vertical"
     app:MvxBind="Text Name;" />
 </controls.CardViewX>
