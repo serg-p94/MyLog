@@ -7568,34 +7568,31 @@ namespace MyLog.Droid
 			public const int RoadTrackingView = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int RouteDetailsView = 2130903104;
+			public const int RoutesCatalogView = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int RoutesCatalogView = 2130903105;
+			public const int select_dialog_item_material = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int select_dialog_item_material = 2130903106;
+			public const int select_dialog_multichoice_material = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int select_dialog_multichoice_material = 2130903107;
+			public const int select_dialog_singlechoice_material = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int select_dialog_singlechoice_material = 2130903108;
+			public const int SettingsView = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int SettingsView = 2130903109;
+			public const int SlideMenuHostActivity = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int SlideMenuHostActivity = 2130903110;
+			public const int SplashScreen = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int SplashScreen = 2130903111;
+			public const int support_simple_spinner_dropdown_item = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int support_simple_spinner_dropdown_item = 2130903112;
-			
-			// aapt resource value: 0x7f030049
-			public const int tooltip = 2130903113;
+			public const int tooltip = 2130903112;
 			
 			static Layout()
 			{
@@ -7834,8 +7831,8 @@ namespace MyLog.Droid
 			// aapt resource value: 0x7f0c0163
 			public const int Animation_Design_BottomSheetDialog = 2131493219;
 			
-			// aapt resource value: 0x7f0c0189
-			public const int AppTheme = 2131493257;
+			// aapt resource value: 0x7f0c018a
+			public const int AppTheme = 2131493258;
 			
 			// aapt resource value: 0x7f0c009e
 			public const int Base_AlertDialog_AppCompat = 2131493022;
@@ -8340,6 +8337,9 @@ namespace MyLog.Droid
 			
 			// aapt resource value: 0x7f0c0003
 			public const int CardView_Light = 2131492867;
+			
+			// aapt resource value: 0x7f0c0189
+			public const int Divider = 2131493257;
 			
 			// aapt resource value: 0x7f0c0022
 			public const int Platform_AppCompat = 2131492898;

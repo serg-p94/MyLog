@@ -219,6 +219,8 @@
     <Compile Include="Activities\Decorators\IActivityDecorator.cs" />
     <Compile Include="Custom\Controls\CardViewX.cs" />
     <Compile Include="Custom\Controls\MvxRecyclerViewX.cs" />
+    <Compile Include="Custom\Converters\SpeedStringConverter.cs" />
+    <Compile Include="Custom\Converters\DistanceStringConverter.cs" />
     <Compile Include="Custom\Converters\TimeStringConverter.cs" />
     <Compile Include="Custom\Converters\TrackingStateIconIdConverter.cs" />
     <Compile Include="Extensions\ActivityExtensions.cs" />

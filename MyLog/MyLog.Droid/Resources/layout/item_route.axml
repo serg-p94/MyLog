@@ -5,8 +5,32 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   style="@style/Card"
   app:MvxBind="Selected IsSelected;">
-  <TextView
-    style="@style/Text.Accent"
-    android:layout_gravity="center_vertical"
-    app:MvxBind="Text Name;" />
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+      style="@style/Text.Accent"
+      android:layout_gravity="center_vertical"
+      app:MvxBind="Text Name;" />
+
+    <View style="@style/Divider" />
+
+    <TextView
+      style="@style/Text.Normal"
+      android:layout_gravity="center_vertical"
+      app:MvxBind="Text 'Расстояние: ' + DistanceString(Distance);" />
+    <TextView
+      style="@style/Text.Normal"
+      android:layout_gravity="center_vertical"
+      app:MvxBind="Text 'Время: ' + TimeString(Time);" />
+    <TextView
+      style="@style/Text.Normal"
+      android:layout_gravity="center_vertical"
+      app:MvxBind="Text 'Скорость: ' + SpeedString(Speed);" />
+    <TextView
+      style="@style/Text.Normal"
+      android:layout_gravity="center_vertical"
+      app:MvxBind="Text 'Остановки: ' + WaypointsCount;" />
+  </LinearLayout>
 </controls.CardViewX>
