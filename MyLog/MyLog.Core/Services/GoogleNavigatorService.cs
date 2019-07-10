@@ -19,7 +19,7 @@ namespace MyLog.Core.Services
             }
 
             paramsBuilder.Append($"&destination={route.Destination}");
-            paramsBuilder.Append($"&waypoints={string.Join("|", route.Waypoints.Select(c => c.ToString()))}");
+            paramsBuilder.Append($"&waypoints={string.Join("|", route.Waypoints.Select(w => w.Coordinates.ToString()))}");
 
             return paramsBuilder.ToString();
         }

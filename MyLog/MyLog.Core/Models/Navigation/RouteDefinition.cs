@@ -13,21 +13,21 @@ namespace MyLog.Core.Models.Navigation
 
         public Coordinates Destination { get; set; }
 
-        public List<Coordinates> Waypoints { get; } = new List<Coordinates>();
+        public List<WaypointModel> Waypoints { get; } = new List<WaypointModel>();
 
         public static RouteDefinition FromCsvModel(RouteDefinitionCsvModel csvModel)
         {
             var routeModel = new RouteDefinition { Name = csvModel.Name };
-            routeModel.Waypoints.AddRange(csvModel.Waypoints);
+            routeModel.Waypoints.AddRange(csvModel.Waypoints.Select(WaypointModel.FromCsv));
 
             if (csvModel.IsStartFromFirstPoint)
             {
-                routeModel.Origin = csvModel.Waypoints.First();
-                routeModel.Waypoints.Remove(routeModel.Origin.Value);
+                routeModel.Origin = routeModel.Waypoints.First().Coordinates;
+                routeModel.Waypoints.Remove(routeModel.Waypoints.First());
             }
 
-            routeModel.Destination = csvModel.Waypoints.Last();
-            routeModel.Waypoints.Remove(routeModel.Destination);
+            routeModel.Destination = routeModel.Waypoints.Last().Coordinates;
+            routeModel.Waypoints.Remove(routeModel.Waypoints.Last());
 
             return routeModel;
         }

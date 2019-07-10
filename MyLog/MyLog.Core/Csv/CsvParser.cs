@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using CsvHelper;
-using CsvHelper.Configuration.Attributes;
 using MyLog.Core.Csv.Converters;
 using MyLog.Core.Extensions;
 using MyLog.Core.Models.Navigation;
+using Newtonsoft.Json;
 
 namespace MyLog.Core.Csv
 {
@@ -67,63 +67,57 @@ namespace MyLog.Core.Csv
                 var model = csvReader.GetRecord<TModel>();
                 var unparsedData = complexData.Split(new[] { csvReader.Context.RawRecord },
                     StringSplitOptions.None).Last();
-                FillModelLists(model, unparsedData);
+                FillModelList(model, unparsedData);
 
                 return model;
             }
         }
 
-        private static void FillModelLists<TModel>(TModel model, string data)
+        private static void FillModelList<TModel>(TModel model, string data)
         {
-            var proptertiesToFill = typeof(TModel).GetProperties()
-                .Where(p => p.PropertyType.Name.Contains("IList"));
+            data.GetParts(Environment.NewLine, out _, out data);
+            var jsonData = GetJsonString(data);
 
-            var lineEndIndex = data.IndexOf(Environment.NewLine);
-            var emptyLine = Environment.NewLine + data.Substring(0, lineEndIndex + Environment.NewLine.Length);
-            data.GetParts(Environment.NewLine, out var _, out data);
-            var listSections = data.Split(new[] { emptyLine }, StringSplitOptions.RemoveEmptyEntries);
-
-            var listSectionsDictionary = new Dictionary<string, string>(listSections.Length);
-            listSections.ForEach(section =>
+            var listProperty = typeof(TModel).GetProperties()
+                .FirstOrDefault(pi => pi.HasAttribute<ListAttribute>());
+            if (listProperty != null)
             {
-                section.GetParts(Environment.NewLine, out var nameLine, out var content);
-                var name = nameLine.Contains('"') ? nameLine.Split('"')[1] : nameLine.Substring(0, nameLine.IndexOf(','));
-                listSectionsDictionary[name] = content;
-            });
+                var listData = JsonConvert.DeserializeObject(jsonData, listProperty.PropertyType);
+                listProperty.SetValue(model, listData);
+            }
+        }
 
-            foreach (var property in proptertiesToFill)
+        private static string GetJsonString(string csvString)
+        {
+            var lines = csvString.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var headers = lines.First().Split(',').Select(s => s.Trim());
+            var data = new List<Dictionary<string, string>>(lines.Length - 1);
+
+            for (int i = 1; i < lines.Length; i++)
             {
-                var nameAttribute = property.GetCustomAttributes(typeof(NameAttribute), false)
-                    .OfType<NameAttribute>().FirstOrDefault();
-                var name = nameAttribute?.Names?.FirstOrDefault() ?? property.Name;
-                var content = listSectionsDictionary[name];
+                var row = new Dictionary<string, string>();
+                var values = new List<string>();
 
-                using (var stringReader = new StringReader(content))
+                using (var stringReader = new StringReader(lines[i]))
                 using (var csvReader = new CsvReader(stringReader))
                 {
                     csvReader.Configuration.TypeConverterCache.AddConverter<Coordinates>(new CoordinatesConverter());
 
-                    var itemType = property.PropertyType.GetGenericArguments().First();
-                    var itemConverter = csvReader.Configuration.TypeConverterCache.GetConverter(itemType);
-
-                    if (itemConverter ==null)
+                    if (csvReader.Read())
                     {
-                        var records = csvReader.GetRecords(itemType);
-                        throw new NotImplementedException();
-                    }
-                    else
-                    {
-                        var list = property.GetValue(model);
-                        var addMethod = list.GetType().GetMethod(nameof(ICollection<object>.Add));
-
-                        while (csvReader.Read())
+                        while (csvReader.TryGetField(values.Count, out string s))
                         {
-                            var listItem = csvReader.GetField(itemType, 0);
-                            addMethod?.Invoke(list, new[] { listItem });
+                            values.Add(s);
                         }
                     }
                 }
+
+                headers.ForEach((h, n) => row[h] = values[n]);
+
+                data.Add(row);
             }
+
+            return JsonConvert.SerializeObject(data);
         }
     }
 }

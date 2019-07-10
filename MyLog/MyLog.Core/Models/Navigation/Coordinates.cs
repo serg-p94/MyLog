@@ -1,8 +1,11 @@
 ﻿using System.Globalization;
 using System.Linq;
+using MyLog.Core.Converters;
+using Newtonsoft.Json;
 
 namespace MyLog.Core.Models.Navigation
 {
+    [JsonConverter(typeof(CoordinatesJsonConverter))]
     public struct Coordinates
     {
         public double Latitude { get; set; }
