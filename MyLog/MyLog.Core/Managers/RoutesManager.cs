@@ -32,7 +32,11 @@ namespace MyLog.Core.Managers
         public ObservableCollection<TModel> GetRoutesCollection<TModel>(Func<RouteDefinition, TModel> convert)
         {
             var realmCollection = DbService.GetData(r => r.All<RouteDbModel>().AsRealmCollection());
-            return new RealmObservableCollection<RouteDbModel, TModel>(realmCollection, db => convert(db.Definition));
+            return new RealmObservableCollection<RouteDbModel, TModel>(realmCollection, db => {
+                var definition = db.Definition;
+                definition.Id = db.Id;
+                return convert(definition);
+            });
         }
 
         public async Task ImportRouteAsync()
@@ -40,14 +44,18 @@ namespace MyLog.Core.Managers
             var csvData = await FileInputService.ImportTextAsync();
             var csvModel = CsvParser.ParseComplex<RouteDefinitionCsvModel>(csvData);
             var routeModel = RouteDefinition.FromCsvModel(csvModel);
-            DbService.EditData(r => r.Add(new RouteDbModel { Definition = routeModel }));
+            DbService.EditData(r => r.Add(new RouteDbModel {
+                Id = Guid.NewGuid().ToString(),
+                Definition = routeModel
+            }));
         }
 
         // TODO: Optimize
         public void Remove(IList<RouteDefinition> routes) => DbService.EditData(realm => {
-            var allDbItems = realm.All<RouteDbModel>().ToList();
-            var range = allDbItems.Where(db => routes.Contains(db.Definition)).ToList();
-            range.ForEach(realm.Remove);
+            routes.ForEach(r => {
+                var dbModel = realm.Find<RouteDbModel>(r.Id);
+                realm.Remove(dbModel);
+            });
         });
     }
 }

@@ -5,13 +5,15 @@ using MyLog.Core.Csv.Models;
 
 namespace MyLog.Core.Models.Navigation
 {
-    public class RouteDefinition : IEquatable<RouteDefinition>
+    public class RouteDefinition
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
-        public Coordinates? Origin { get; set; }
+        public WaypointModel Origin { get; set; }
 
-        public Coordinates Destination { get; set; }
+        public WaypointModel Destination { get; set; }
 
         public List<WaypointModel> Waypoints { get; } = new List<WaypointModel>();
 
@@ -22,29 +24,14 @@ namespace MyLog.Core.Models.Navigation
 
             if (csvModel.IsStartFromFirstPoint)
             {
-                routeModel.Origin = routeModel.Waypoints.First().Coordinates;
+                routeModel.Origin = routeModel.Waypoints.First();
                 routeModel.Waypoints.Remove(routeModel.Waypoints.First());
             }
 
-            routeModel.Destination = routeModel.Waypoints.Last().Coordinates;
+            routeModel.Destination = routeModel.Waypoints.Last();
             routeModel.Waypoints.Remove(routeModel.Waypoints.Last());
 
             return routeModel;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as RouteDefinition);
-        }
-
-        // TODO: fix
-        public bool Equals(RouteDefinition other)
-        {
-            return other != null &&
-                   Name == other.Name &&
-                   EqualityComparer<Coordinates?>.Default.Equals(Origin, other.Origin) &&
-                   EqualityComparer<Coordinates>.Default.Equals(Destination, other.Destination)/* &&
-                   EqualityComparer<List<Coordinates>>.Default.Equals(Waypoints, other.Waypoints)*/;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MyLog.Core.Models.Navigation;
+﻿using System;
+using MyLog.Core.Models.Navigation;
 using Newtonsoft.Json;
 using Realms;
 
@@ -7,6 +8,9 @@ namespace MyLog.Core.Data.RealmModels
     [MapTo("Routes")]
     public class RouteDbModel : RealmObject
     {
+        [PrimaryKey]
+        public string Id { get; set; }
+
         [MapTo("Definition")]
         private string _definition { get; set; }
 

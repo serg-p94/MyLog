@@ -31,6 +31,6 @@
     <TextView
       style="@style/Text.Normal"
       android:layout_gravity="center_vertical"
-      app:MvxBind="Text 'Остановки: ' + WaypointsCount;" />
+      app:MvxBind="Text 'Остановки: ' + StopsCount;" />
   </LinearLayout>
 </controls.CardViewX>

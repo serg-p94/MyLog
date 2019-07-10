@@ -14,12 +14,12 @@ namespace MyLog.Core.Services
         {
             var paramsBuilder = new StringBuilder("yandexnavi://build_route_on_map?");
 
-            if (route.Origin.HasValue)
+            if (route.Origin != null)
             {
-                paramsBuilder.Append($"lat_from={route.Origin.Value.Latitude}&lon_from={route.Origin.Value.Longitude}&");
+                paramsBuilder.Append($"lat_from={route.Origin.Coordinates.Latitude}&lon_from={route.Origin.Coordinates.Longitude}&");
             }
 
-            paramsBuilder.Append($"lat_to={route.Destination.Latitude}&lon_to={route.Destination.Longitude}");
+            paramsBuilder.Append($"lat_to={route.Destination.Coordinates.Latitude}&lon_to={route.Destination.Coordinates.Longitude}");
             route.Waypoints.Select(w => w.Coordinates).ForEach((c, i) =>
                 paramsBuilder.Append($"&lat_via_{i}={c.Latitude}&lon_via_{i}={c.Longitude}"));
 

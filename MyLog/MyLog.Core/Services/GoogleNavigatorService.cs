@@ -13,12 +13,12 @@ namespace MyLog.Core.Services
         {
             var paramsBuilder = new StringBuilder("https://www.google.com/maps/dir/?api=1");
 
-            if (route.Origin.HasValue)
+            if (route.Origin != null)
             {
-                paramsBuilder.Append($"&origin={route.Origin.Value.ToString()}");
+                paramsBuilder.Append($"&origin={route.Origin.Coordinates}");
             }
 
-            paramsBuilder.Append($"&destination={route.Destination}");
+            paramsBuilder.Append($"&destination={route.Destination.Coordinates}");
             paramsBuilder.Append($"&waypoints={string.Join("|", route.Waypoints.Select(w => w.Coordinates.ToString()))}");
 
             return paramsBuilder.ToString();
