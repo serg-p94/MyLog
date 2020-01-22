@@ -4,9 +4,9 @@ using MvvmCross.Platforms.Android.Views;
 
 namespace MyLog.Droid
 {
-    [Activity(MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class SplashScreen : MvxSplashScreenActivity
-    {
-        public SplashScreen() : base(Resource.Layout.SplashScreen) { }
-    }
+    [Activity(MainLauncher = true,
+        NoHistory = true,
+        ScreenOrientation = ScreenOrientation.Portrait,
+        Theme = "@style/AppTheme.Launcher")]
+    public class SplashScreen : MvxSplashScreenActivity { }
 }

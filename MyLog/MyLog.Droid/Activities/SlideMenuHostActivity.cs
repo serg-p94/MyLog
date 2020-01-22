@@ -17,7 +17,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace MyLog.Droid.Activities
 {
-    [Activity(Label = "SlideMenuHostActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme")]
+    [Activity(Label = "SlideMenuHostActivity", ScreenOrientation = ScreenOrientation.Portrait)]
     public class SlideMenuHostActivity : BaseActivity<SlideMenuHostViewModel>
     {
         private const string AppCenterId = "2ce554e0-4ef7-414c-adc3-2db84458f70a";

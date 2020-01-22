@@ -6,9 +6,9 @@ using Plugin.CurrentActivity;
 namespace MyLog.Droid
 {
 #if DEBUG
-    [Application(Debuggable = true)]
+    [Application(Debuggable = true, Theme = "@style/AppTheme")]
 #else
-	[Application(Debuggable = false)]
+    [Application(Debuggable = false, Theme = "@style/AppTheme")]
 #endif
     public class MainApplication : Application
     {

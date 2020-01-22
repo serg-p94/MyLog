@@ -15,4 +15,8 @@
     <item name="android:actionModeBackground">@color/primaryColor</item>
     <item name="actionModeBackground">@color/primaryColor</item>
   </style>
+
+  <style name="AppTheme.Launcher">
+    <item name="android:windowBackground">@drawable/launch_screen</item>
+  </style>
 </resources>
